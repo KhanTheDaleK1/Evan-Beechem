@@ -3,94 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Evan Beechem's website. Explore my projects, interests, and contact information.">
-    <title>Evan Beechem</title>
+    <meta name="description" content="Welcome to Evan Beechem's 90s-style site.">
+    <title>Evan Beechem's Retro Site</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: black;
+            color: limegreen;
+            font-family: "Courier New", Courier, monospace;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
         }
-        header {
-            background: #4CAF50;
-            color: #fff;
-            padding: 20px 10px;
-            text-align: center;
+        h1, h2, h3 {
+            color: limegreen;
+            text-shadow: 0 0 5px #00ff00;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #333;
-            padding: 10px;
-        }
-        nav a {
-            color: white;
+        a {
+            color: #00ff00;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
         }
-        nav a:hover {
+        a:hover {
             text-decoration: underline;
         }
-        .content {
-            padding: 20px;
+        header {
+            background-color: #003300;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid limegreen;
+        }
+        nav {
+            text-align: center;
+            margin: 10px 0;
+        }
+        nav a {
+            margin: 0 15px;
+        }
+        .container {
             max-width: 800px;
-            margin: auto;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .box {
+            border: 1px solid limegreen;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #002200;
         }
         footer {
             text-align: center;
-            padding: 20px;
-            background: #333;
-            color: white;
-            position: relative;
+            padding: 10px;
+            background-color: #003300;
+            border-top: 2px solid limegreen;
         }
-        .hero {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .hero h1 {
-            font-size: 3em;
-            color: #4CAF50;
-        }
-        .hero p {
+        .marquee {
             font-size: 1.2em;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: scroll 10s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Evan Beechem</h1>
+        <h1>Welcome to Evan Beechem's Retro Site!</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <section class="hero">
-        <h1>Welcome!</h1>
-        <p>Explore my projects, interests, and connect with me.</p>
-    </section>
-    <div class="content">
-        <section id="about">
+    <div class="marquee">
+        <marquee>✨ Welcome! You've stumbled into a blast from the past. Stay a while! ✨</marquee>
+    </div>
+    <div class="container">
+        <section id="about" class="box">
             <h2>About Me</h2>
-            <p>Hi! I'm Evan Beechem, an electrical engineer passionate about technology, automation, and world travel. Here you can find my latest projects and connect with me.</p>
+            <p>Hello! My name is Evan Beechem. I'm an engineer passionate about tech, home automation, and world travel. This website is a homage to the classic 90s web era—just for fun!</p>
         </section>
-        <section id="projects">
+        <section id="projects" class="box">
             <h2>Projects</h2>
             <ul>
-                <li><a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">Project Name</a> - A short description of the project.</li>
-                <li><a href="https://github.com/YOUR_USERNAME/YOUR_REPO2" target="_blank">Another Project</a> - Another short description.</li>
+                <li><a href="https://github.com/YOUR_USERNAME/YOUR_PROJECT" target="_blank">Project 1</a>: A detailed explanation of an amazing project.</li>
+                <li><a href="https://github.com/YOUR_USERNAME/YOUR_PROJECT_2" target="_blank">Project 2</a>: Another exciting project I'm working on.</li>
             </ul>
         </section>
-        <section id="contact">
+        <section id="contact" class="box">
             <h2>Contact</h2>
-            <p>You can reach me via <a href="mailto:youremail@example.com">email</a> or check out my work on <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>.</p>
+            <p>You can reach me at <a href="mailto:you@example.com">you@example.com</a>. Check out my <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a> for more projects!</p>
         </section>
     </div>
     <footer>
-        <p>© 2024 Evan Beechem. All Rights Reserved.</p>
+        <p>© 2024 Evan Beechem. This website is powered by nostalgia. 🚀</p>
     </footer>
 </body>
 </html>
