@@ -16,6 +16,7 @@
             <nav>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
+                <a href="#feeders">Feeders</a>
                 <a href="#archives">Archives</a>
                 <a href="#contact">Contact</a>
                 <a href="https://ops.beechem.site" target="_blank" class="op-link">[ OP_CENTER ]</a>
@@ -38,6 +39,34 @@
             </p>
         </section>
 
+        
+        <section id="feeders" class="panel">
+            <h2>// FEEDER_UPLINK_STATUS</h2>
+            <p>Live statistics for this station across global aggregation networks.</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 8px;">
+                    <strong style="color:#00aaff">FlightAware:</strong> 
+                    <span style="color:#0f0">CONNECTED</span> 
+                    <a href="https://flightaware.com/adsb/stats/user/khanthedalek1" target="_blank" style="font-size:0.8em; margin-left:10px;">[VIEW STATS]</a>
+                </li>
+                <li style="margin-bottom: 8px;">
+                    <strong style="color:#ffcc00">FlightRadar24:</strong> 
+                    <span style="color:#0f0">CONNECTED</span> 
+                    <a href="https://www.flightradar24.com/account/data-sharing" target="_blank" style="font-size:0.8em; margin-left:10px;">[VIEW STATS]</a>
+                </li>
+                <li style="margin-bottom: 8px;">
+                    <strong style="color:#ff0000">ADS-B Exchange:</strong> 
+                    <span style="color:#0f0">CONNECTED</span> 
+                    <a href="https://www.adsbexchange.com/myip" target="_blank" style="font-size:0.8em; margin-left:10px;">[VIEW STATS]</a>
+                </li>
+                <li style="margin-bottom: 8px;">
+                    <strong style="color:#00ff00">Airplanes.live:</strong> 
+                    <span style="color:#0f0">CONNECTED</span> 
+                    <a href="https://airplanes.live/myfeed" target="_blank" style="font-size:0.8em; margin-left:10px;">[VIEW STATS]</a>
+                </li>
+            </ul>
+        </section>
+
         <section id="projects" class="panel">
             <h2>// ACTIVE_PROJECTS</h2>
             <ul>
@@ -47,7 +76,7 @@
                     <span style="color:#ff0000; font-size:0.8em;">[SECURE ACCESS ONLY]</span>
                 </li>
                 <li style="margin-bottom: 10px;">
-                    <strong>Flight Tracker Node:</strong> Real-time aviation monitoring using SDR (Software Defined Radio).
+                    <strong>Flight Tracker Node:</strong> Real-time aviation monitoring feeding FlightAware, FR24, ADSBx, and Airplanes.live.
                 </li>
                 <li style="margin-bottom: 10px;">
                     <strong>AutoISO Backup:</strong> Automated tool for live-system imaging and cloud upload.
