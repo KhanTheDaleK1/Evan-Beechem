@@ -3,109 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Evan Beechem's site.">
-    <title>Evan Beechem</title>
-    <style>
-        body {
-            background-color: black;
-            color: limegreen;
-            font-family: "Courier New", Courier, monospace;
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2, h3 {
-            color: limegreen;
-            text-shadow: 0 0 5px #00ff00;
-        }
-        a {
-            color: #00ff00;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        header {
-            background-color: #003300;
-            padding: 10px;
-            text-align: center;
-            border-bottom: 2px solid limegreen;
-        }
-        nav {
-            text-align: center;
-            margin: 10px 0;
-        }
-        nav a {
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .box {
-            border: 1px solid limegreen;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: #002200;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #003300;
-            border-top: 2px solid limegreen;
-        }
-        .marquee {
-            font-size: 1.2em;
-            font-weight: bold;
-            overflow: hidden;
-            white-space: nowrap;
-            animation: scroll 40s linear infinite;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-    </style>
+    <title>Evan Beechem | Cyber Ops</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Evan Beechem's site</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            
-            <a href="https://r6svlt2q-80.use2.devtunnels.ms/" target="_blank" style="border: 1px solid #00ff00; padding: 5px; background-color: #001100;">[ OP_CENTER ]</a>
-        </nav>
-    </header>
-    <div class="marquee">
-        <marquee>✨ Welcome! ✨      ✨ I'm glad you've made it! ✨     ✨ Welcome to Evan Beechem's Portfolio | Engineering | Automation | Innovation ✨ </marquee>
-    </div>
+    <canvas id="matrix"></canvas>
+
     <div class="container">
-        <section id="about" class="box">
-            <h2>About Me</h2>
+        <header>
+            <h1>EVAN BEECHEM</h1>
+            <p>Engineer | Automation Specialist | Cyber Ops</p>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <a href="https://r6svlt2q-80.use2.devtunnels.ms/" target="_blank" class="op-link">[ OP_CENTER ]</a>
+            </nav>
+        </header>
+
+        <section id="about" class="panel">
+            <h2>// STATUS: ACTIVE</h2>
             <p>
-                Welcome! My name is Evan Beechem, and I am an electrical engineer with expertise in automation, control systems, and technology integration. I am passionate about solving complex engineering challenges, exploring innovative solutions, and driving efficiency in industrial and home automation systems.
+                <strong>Current Role:</strong> OT Systems Engineer at Dis-Tran Steel<br>
+                <strong>Location:</strong> Operational Node [Pineville, LA]<br>
+                <strong>Time:</strong> 2025-12-04 09:34
+            </p>
+            <p>
+                I am an electrical engineer specializing in complex automation, Linux systems integration, and industrial control. 
+                My workspace is a blend of hardware engineering and software efficiency.
             </p>
         </section>
-        <section id="projects" class="box">
-            <h2>Projects</h2>
+
+        <section id="projects" class="panel">
+            <h2>// PROJECT_LOG</h2>
             <ul>
-                <li><a href="https://github.com/YOUR_USERNAME/YOUR_PROJECT" target="_blank">Project 1</a>: A detailed explanation of an amazing project.</li>
-                <li><a href="https://github.com/YOUR_USERNAME/YOUR_PROJECT_2" target="_blank">Project 2</a>: Another exciting project I'm working on.</li>
+                <li>
+                    <strong>Cyber Ops Dashboard:</strong> Custom Linux control center for ADS-B tracking and telemetry. 
+                    <em>[Stack: Lighttpd, Bash, Python, HTML5]</em>
+                </li>
+                <li>
+                    <strong>Flight Tracker Node:</strong> Real-time aviation monitoring using SDR (Software Defined Radio).
+                </li>
+                <li>
+                    <strong>AutoISO Backup:</strong> Automated tool for live-system imaging and cloud upload.
+                </li>
             </ul>
         </section>
-        <section id="contact" class="box">
-            <h2>Contact</h2>
+
+        <section id="contact" class="panel">
+            <h2>// COMMUNICATION_UPLINK</h2>
             <p>
-                You can reach me at <a href="mailto:evan_beechem@texarkanaaluminum.com">evan_beechem@texarkanaaluminum.com</a>. 
-                Check out my <a href="https://github.com/khanthedalek1" target="_blank">GitHub</a> for more projects!
+                Primary Email: <a href="mailto:evan.t.beechem@gmail.com">evan.t.beechem@gmail.com</a><br>
+                GitHub Uplink: <a href="https://github.com/khanthedalek1" target="_blank">khanthedalek1</a>
             </p>
         </section>
+
+        <footer>
+            &copy; 2025 Evan Beechem. Systems Operational.
+        </footer>
     </div>
-    <footer>
-        <p>© 2024 Evan Beechem. 🚀</p>
-    </footer>
+
+    <script src="matrix.js"></script>
 </body>
 </html>
