@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETWORK STATUS // OUTAGE MAP</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root { --term-green: #00ff00; --term-red: #ff3333; --term-dim: #004400; --bg-color: #0d0d0d; --font-stack: 'Courier New', Courier, monospace; }
+        body { margin: 0; padding: 0; background-color: var(--bg-color); color: var(--term-green); font-family: var(--font-stack); overflow: hidden; }
+        canvas#matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; }
+        
+        #ui-container { position: relative; width: 100vw; height: 100vh; display: grid; grid-template-rows: 60px 1fr 200px; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; border-bottom: 2px solid var(--term-green); background: rgba(0, 20, 0, 0.9); z-index: 10; }
+        h1 { font-size: 1.5rem; letter-spacing: 2px; margin: 0; text-shadow: 0 0 5px var(--term-green); }
+        .back-btn { text-decoration: none; color: black; background: var(--term-green); padding: 5px 15px; font-weight: bold; border: 1px solid var(--term-green); }
+        .back-btn:hover { background: black; color: var(--term-green); box-shadow: 0 0 10px var(--term-green); }
+
+        #map { width: 100%; height: 100%; background: black; }
+        /* BLUEPRINT FILTER: Inverts Light Map to Black/Green */
+        .leaflet-tile-pane { filter: invert(100%) sepia(100%) hue-rotate(70deg) saturate(300%) contrast(110%) brightness(1.5); }
+        .leaflet-marker-icon, .leaflet-popup-content-wrapper { filter: none !important; }
+
+        footer { background: rgba(0, 10, 0, 0.95); border-top: 2px solid var(--term-green); padding: 10px; z-index: 10; overflow-y: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th { text-align: left; border-bottom: 1px dashed var(--term-dim); color: #88ff88; padding: 5px; }
+        td { padding: 5px; border-bottom: 1px solid var(--term-dim); }
+        
+        .status-online { color: var(--term-green); font-weight: bold; }
+        .status-offline { color: var(--term-red); font-weight: bold; text-shadow: 0 0 5px red; animation: blink 1s infinite alternate; }
+        @keyframes blink { 0% { opacity: 1; } 100% { opacity: 0.3; } }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <div id="ui-container">
+        <header>
+            <h1>// NETWORK STATUS //</h1>
+            <a href="index.html" class="back-btn">[ RETURN ]</a>
+        </header>
+        <div id="map-wrapper"><div id="map"></div></div>
+        <footer>
+            <table id="sector-table">
+                <thead><tr><th>SECTOR ID</th><th>ZONE NAME</th><th>STATUS</th><th>LATENCY</th><th>NOTES</th></tr></thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // CONFIG
+        const CENTER = [31.3113, -92.4451]; 
+        const sectors = [
+            { id: "SEC-01", name: "DOWNTOWN ALEXANDRIA", coords: [31.31, -92.44], radius: 3000, status: "ONLINE", note: "Nominal" },
+            { id: "SEC-02", name: "PINEVILLE HUB", coords: [31.33, -92.42], radius: 2500, status: "ONLINE", note: "Nominal" },
+            { id: "SEC-03", name: "ENGLAND AIRPARK", coords: [31.33, -92.55], radius: 4500, status: "OFFLINE", note: "CRITICAL FAILURE: FIBER CUT" },
+            { id: "SEC-04", name: "SOUTH INDUSTRIAL", coords: [31.25, -92.46], radius: 3500, status: "ONLINE", note: "Rerouted via Microwave" }
+        ];
+
+        // MAP
+        const map = L.map('map', { zoomControl: false, attributionControl: false }).setView(CENTER, 11);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(map);
+
+        // RENDER
+        const tableBody = document.getElementById('table-body');
+        sectors.forEach(sec => {
+            const isOnline = sec.status === "ONLINE";
+            const color = isOnline ? "#00ff00" : "#ff3333";
+            const fillOpacity = isOnline ? 0.1 : 0.4;
+
+            L.circle(sec.coords, { color: color, fillColor: color, fillOpacity: fillOpacity, radius: sec.radius, weight: 2 })
+             .addTo(map).bindPopup(`<b>${sec.id}</b><br>${sec.name}<br>Status: <b>${sec.status}</b>`);
+
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${sec.id}</td><td>${sec.name}</td><td class="${isOnline ? 'status-online' : 'status-offline'}">${sec.status}</td><td>${isOnline ? Math.floor(Math.random()*15+5)+"ms" : "TIMEOUT"}</td><td>${sec.note}</td>`;
+            tableBody.appendChild(row);
+        });
+
+        // MATRIX RAIN
+        const c = document.getElementById("matrix"), ctx = c.getContext("2d");
+        c.height = window.innerHeight; c.width = window.innerWidth;
+        const font_size = 14, columns = c.width/font_size, drops = Array(Math.floor(columns)).fill(1);
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, c.width, c.height);
+            ctx.fillStyle = "#0F0"; ctx.font = font_size + "px arial";
+            drops.forEach((y, i) => {
+                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+                ctx.fillText(text, i*font_size, y*font_size);
+                if(y*font_size > c.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            });
+        }
+        setInterval(drawMatrix, 33);
+        window.addEventListener('resize', () => { c.height=window.innerHeight; c.width=window.innerWidth; });
+    </script>
+</body>
+</html>
