@@ -2,7 +2,7 @@
   "network": [
     {
       "type": "NET",
-      "name": "Google DNS",
+      "name": "Google DNS (US)",
       "origin": [
         31.3113,
         -92.4451
@@ -12,11 +12,10 @@
         -122.07
       ],
       "status": "ONLINE",
-      "latency": 28.272,
-      "jitter": 4.204999999999998,
+      "latency": 28.297,
+      "jitter": 0,
       "history": [
-        32.477,
-        28.272
+        28.297
       ],
       "ip": "8.8.8.8"
     },
@@ -32,11 +31,12 @@
         -78.5
       ],
       "status": "ONLINE",
-      "latency": 79.653,
-      "jitter": 0.9000000000000057,
+      "latency": 78.276,
+      "jitter": 1.1385000000000076,
       "history": [
         78.753,
-        79.653
+        79.653,
+        78.276
       ],
       "ip": "52.94.76.1"
     },
@@ -52,11 +52,12 @@
         -78.39
       ],
       "status": "ONLINE",
-      "latency": 28.323,
-      "jitter": 0.07199999999999918,
+      "latency": 28.611,
+      "jitter": 0.17999999999999972,
       "history": [
         28.251,
-        28.323
+        28.323,
+        28.611
       ],
       "ip": "13.107.21.200"
     },
@@ -72,11 +73,12 @@
         -0.12
       ],
       "status": "ONLINE",
-      "latency": 22.62,
-      "jitter": 0.16999999999999815,
+      "latency": 22.133,
+      "jitter": 0.3285,
       "history": [
         22.79,
-        22.62
+        22.62,
+        22.133
       ],
       "ip": "151.101.192.81"
     },
@@ -92,11 +94,12 @@
         139.76
       ],
       "status": "ONLINE",
-      "latency": 227.686,
-      "jitter": 0.1910000000000025,
+      "latency": 227.32,
+      "jitter": 0.2785000000000082,
       "history": [
         227.495,
-        227.686
+        227.686,
+        227.32
       ],
       "ip": "172.217.25.14"
     }
@@ -108,7 +111,7 @@
       "url": "https://beechem.site",
       "status": "ONLINE",
       "code": 200,
-      "latency": 215,
+      "latency": 207,
       "ssl": 86
     },
     {
@@ -117,27 +120,9 @@
       "url": "https://api.github.com",
       "status": "ONLINE",
       "code": 200,
-      "latency": 317,
+      "latency": 290,
       "ssl": 59
-    },
-    {
-      "type": "SVC",
-      "name": "PLANESPOTTERS",
-      "url": "https://api.planespotters.net/pub/v1/hex/A2C34F",
-      "status": "CRITICAL",
-      "code": 404,
-      "latency": 312,
-      "ssl": 49
-    },
-    {
-      "type": "SVC",
-      "name": "AIRPLANES.LIVE",
-      "url": "https://api.airplanes.live/",
-      "status": "CRITICAL",
-      "code": 404,
-      "latency": 314,
-      "ssl": 34
     }
   ],
-  "updated": "2025-12-08T15:30:39.591717"
+  "updated": "2025-12-08T15:35:31.657911"
 }
