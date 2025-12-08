@@ -9,24 +9,19 @@
         body { margin: 0; background: var(--bg-color); color: var(--term-green); font-family: var(--font-stack); overflow: hidden; }
         canvas#matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
         #ui-container { position: relative; width: 100vw; height: 100vh; display: grid; grid-template-rows: 60px 1fr 250px; }
-        
         header { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; border-bottom: 2px solid var(--term-green); background: rgba(0, 20, 0, 0.9); z-index: 10; }
         h1 { font-size: 1.5rem; letter-spacing: 2px; margin: 0; text-shadow: 0 0 5px var(--term-green); }
         .back-btn { text-decoration: none; color: black; background: var(--term-green); padding: 5px 15px; font-weight: bold; }
-
         #map { width: 100%; height: 100%; background: black; }
         .leaflet-tile-pane { filter: invert(100%) sepia(100%) hue-rotate(70deg) saturate(300%) contrast(110%) brightness(1.5); }
-        .leaflet-marker-icon, .leaflet-popup-content-wrapper, .leaflet-overlay-pane { filter: none !important; }
+        .leaflet-marker-icon, .leaflet-popup-content-wrapper { filter: none !important; }
         
-        /* FOOTER GRID (Split Net/Svc) */
-        footer { background: rgba(0, 10, 0, 0.95); border-top: 2px solid var(--term-green); padding: 0; z-index: 10; display: grid; grid-template-columns: 2fr 1fr; }
+        footer { background: rgba(0, 10, 0, 0.95); border-top: 2px solid var(--term-green); padding: 0; z-index: 10; display: grid; grid-template-columns: 2fr 1fr 1fr; }
         
         .panel { padding: 10px; overflow-y: auto; border-right: 1px solid #004400; }
         h3 { margin: 0 0 10px 0; border-bottom: 1px dashed #004400; font-size: 0.9rem; color: #88ff88; }
-        
         table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
         td { padding: 4px; border-bottom: 1px solid #004400; }
-        
         .sparkline { width: 50px; height: 15px; display: inline-block; vertical-align: middle; border-bottom: 1px solid #004400; }
         .bar { display: inline-block; width: 4px; background: var(--term-green); margin-right: 1px; }
         
@@ -45,12 +40,16 @@
         <div id="map-wrapper"><div id="map"></div></div>
         <footer>
             <div class="panel">
-                <h3>NETWORK BACKBONE (PING/TRACE)</h3>
+                <h3>NETWORK BACKBONE (PING)</h3>
                 <table id="net-table"></table>
             </div>
             <div class="panel">
-                <h3>CRITICAL SERVICES (HTTP/SSL)</h3>
+                <h3>SERVICES (HTTP/SSL)</h3>
                 <table id="svc-table"></table>
+            </div>
+            <div class="panel">
+                <h3>USER EXPERIENCE (SYNTH)</h3>
+                <table id="syn-table"></table>
             </div>
         </footer>
     </div>
@@ -61,61 +60,57 @@
 
         async function updateData() {
             try {
-                // 1. Fetch Outages (News)
+                // Outages
                 const resOut = await fetch('live_outages.json?v=' + Date.now());
                 const outages = await resOut.json();
                 map.eachLayer(l => { if(l instanceof L.CircleMarker) map.removeLayer(l); });
-                
                 outages.forEach(a => {
                     L.circleMarker(a.coords, { color: '#f00', radius: 8, fillOpacity: 0.8 }).addTo(map)
                      .bindPopup(`<b>${a.isp} OUTAGE</b><br>${a.loc}`);
                 });
 
-                // 2. Fetch Sentinel Data (Health)
+                // Health
                 const resNet = await fetch('network_health.json?v=' + Date.now());
                 const health = await resNet.json();
                 
-                // RENDER NETWORK TABLE
+                // NET
                 const netTable = document.getElementById('net-table');
                 netTable.innerHTML = '<tr><th>TARGET</th><th>STATUS</th><th>LATENCY</th><th>JITTER</th><th>TREND</th></tr>';
-                
                 health.network.forEach(n => {
                     const isUp = n.status === "ONLINE";
                     const color = isUp ? "#0f0" : "#f00";
-                    
-                    // Draw Line
                     L.polyline([n.origin, n.dest], { color: color, weight: 1, opacity: 0.5 }).addTo(map);
                     L.circleMarker(n.dest, { color: color, radius: 4 }).addTo(map);
-
-                    // Draw Sparkline (History)
                     let spark = "";
-                    if(n.history) {
-                        n.history.forEach(h => {
-                            let hPct = Math.min(100, h) / 2; 
-                            spark += `<span class="bar" style="height:${hPct}px;"></span>`;
-                        });
-                    }
-
+                    if(n.history) n.history.forEach(h => { let hPct = Math.min(100, h) / 2; spark += `<span class="bar" style="height:${hPct}px;"></span>`; });
                     const row = document.createElement('tr');
                     row.innerHTML = `<td>${n.name}</td><td class="${isUp?'status-ok':'status-fail'}">${n.status}</td><td>${n.latency}ms</td><td>${n.jitter.toFixed(1)}ms</td><td><div class="sparkline">${spark}</div></td>`;
                     netTable.appendChild(row);
                 });
 
-                // RENDER SERVICES TABLE
+                // SVC
                 const svcTable = document.getElementById('svc-table');
-                svcTable.innerHTML = '<tr><th>SERVICE</th><th>STATUS</th><th>SSL EXPIRY</th></tr>';
-                
+                svcTable.innerHTML = '<tr><th>SERVICE</th><th>STATUS</th><th>SSL</th></tr>';
                 health.services.forEach(s => {
-                    const isOk = s.status === "ONLINE";
                     const row = document.createElement('tr');
-                    row.innerHTML = `<td>${s.name}</td><td class="${isOk?'status-ok':'status-fail'}">${s.status} (${s.code})</td><td>${s.ssl} DAYS</td>`;
+                    row.innerHTML = `<td>${s.name}</td><td class="${s.status=='ONLINE'?'status-ok':'status-fail'}">${s.status} (${s.code})</td><td>${s.ssl} DAYS</td>`;
                     svcTable.appendChild(row);
                 });
 
-            } catch(e) { console.log("Link Error", e); }
+                // SYNTH (New)
+                const synTable = document.getElementById('syn-table');
+                synTable.innerHTML = '<tr><th>TARGET</th><th>LOAD TIME</th><th>UX STATUS</th></tr>';
+                if(health.synthetic) {
+                    health.synthetic.forEach(y => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<td>${y.name}</td><td>${y.latency}ms</td><td class="${y.status=='PASS'?'status-ok':'status-fail'}">${y.status}</td>`;
+                        synTable.appendChild(row);
+                    });
+                }
+
+            } catch(e) { console.log("Error", e); }
         }
 
-        // MATRIX BG
         const c = document.getElementById("matrix"), ctx = c.getContext("2d");
         c.height = window.innerHeight; c.width = window.innerWidth;
         const font_size = 14, columns = c.width/font_size, drops = Array(Math.floor(columns)).fill(1);
@@ -130,7 +125,6 @@
             });
         }
         setInterval(drawMatrix, 33);
-        
         updateData();
     </script>
 </body>
