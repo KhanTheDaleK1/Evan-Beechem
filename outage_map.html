@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <meta name="robots" content="noindex, noarchive, nosnippet">
-    <meta name="google-extended" content="allow">
     <meta charset="UTF-8">
     <title>OPENEYES // SENTINEL</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -17,17 +14,14 @@
         .back-btn { text-decoration: none; color: black; background: var(--term-green); padding: 5px 15px; font-weight: bold; }
         #map { width: 100%; height: 100%; background: black; }
         .leaflet-tile-pane { filter: invert(100%) sepia(100%) hue-rotate(70deg) saturate(300%) contrast(110%) brightness(1.5); }
-        .leaflet-marker-icon, .leaflet-popup-content-wrapper { filter: none !important; }
-        
+        .leaflet-marker-icon, .leaflet-popup-content-wrapper, .leaflet-overlay-pane { filter: none !important; }
         footer { background: rgba(0, 10, 0, 0.95); border-top: 2px solid var(--term-green); padding: 0; z-index: 10; display: grid; grid-template-columns: 2fr 1fr 1fr; }
-        
         .panel { padding: 10px; overflow-y: auto; border-right: 1px solid #004400; }
         h3 { margin: 0 0 10px 0; border-bottom: 1px dashed #004400; font-size: 0.9rem; color: #88ff88; }
         table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
         td { padding: 4px; border-bottom: 1px solid #004400; }
         .sparkline { width: 50px; height: 15px; display: inline-block; vertical-align: middle; border-bottom: 1px solid #004400; }
         .bar { display: inline-block; width: 4px; background: var(--term-green); margin-right: 1px; }
-        
         .status-ok { color: #0f0; }
         .status-fail { color: #f00; animation: blink 1s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } }
@@ -37,17 +31,17 @@
     <canvas id="matrix"></canvas>
     <div id="ui-container">
         <header>
-            <h1>// SENTINEL // GLOBAL INTELLIGENCE</h1>
+            <h1>// SENTINEL // NETWORK INTELLIGENCE</h1>
             <a href="index.html" class="back-btn">[ RETURN ]</a>
         </header>
         <div id="map-wrapper"><div id="map"></div></div>
         <footer>
             <div class="panel">
-                <h3>NETWORK BACKBONE (PING)</h3>
+                <h3>NETWORK BACKBONE (PING/TRACE)</h3>
                 <table id="net-table"></table>
             </div>
             <div class="panel">
-                <h3>SERVICES (HTTP/SSL)</h3>
+                <h3>CRITICAL SERVICES (HTTP/SSL)</h3>
                 <table id="svc-table"></table>
             </div>
             <div class="panel">
@@ -63,7 +57,7 @@
 
         async function updateData() {
             try {
-                // Outages
+                // 1. Fetch Outages (News)
                 const resOut = await fetch('live_outages.json?v=' + Date.now());
                 const outages = await resOut.json();
                 map.eachLayer(l => { if(l instanceof L.CircleMarker) map.removeLayer(l); });
@@ -72,11 +66,11 @@
                      .bindPopup(`<b>${a.isp} OUTAGE</b><br>${a.loc}`);
                 });
 
-                // Health
+                // 2. Fetch Sentinel Data (Health)
                 const resNet = await fetch('network_health.json?v=' + Date.now());
                 const health = await resNet.json();
                 
-                // NET
+                // RENDER NETWORK
                 const netTable = document.getElementById('net-table');
                 netTable.innerHTML = '<tr><th>TARGET</th><th>STATUS</th><th>LATENCY</th><th>JITTER</th><th>TREND</th></tr>';
                 health.network.forEach(n => {
@@ -91,16 +85,19 @@
                     netTable.appendChild(row);
                 });
 
-                // SVC
+                // RENDER SERVICES
                 const svcTable = document.getElementById('svc-table');
                 svcTable.innerHTML = '<tr><th>SERVICE</th><th>STATUS</th><th>SSL</th></tr>';
                 health.services.forEach(s => {
+                    // FILTER OUT AVIATION
+                    if(s.name.includes("PLANESPOTTERS") || s.name.includes("AIRPLANES.LIVE")) return;
+
                     const row = document.createElement('tr');
                     row.innerHTML = `<td>${s.name}</td><td class="${s.status=='ONLINE'?'status-ok':'status-fail'}">${s.status} (${s.code})</td><td>${s.ssl} DAYS</td>`;
                     svcTable.appendChild(row);
                 });
 
-                // SYNTH (New)
+                // RENDER SYNTH
                 const synTable = document.getElementById('syn-table');
                 synTable.innerHTML = '<tr><th>TARGET</th><th>LOAD TIME</th><th>UX STATUS</th></tr>';
                 if(health.synthetic) {
@@ -111,7 +108,7 @@
                     });
                 }
 
-            } catch(e) { console.log("Error", e); }
+            } catch(e) { console.log("Data Link Offline", e); }
         }
 
         const c = document.getElementById("matrix"), ctx = c.getContext("2d");
