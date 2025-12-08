@@ -1,48 +1,33 @@
 [
   {
-    "target": "Google DNS",
+    "target": "Google DNS (US)",
     "ip": "8.8.8.8",
     "origin": [
       31.3113,
       -92.4451
     ],
     "dest": [
-      37.4056,
-      -122.0775
+      37.4,
+      -122.07
     ],
-    "latency": 28.066,
+    "latency": 32.519,
     "status": "ONLINE",
-    "timestamp": "2025-12-08T15:17:07.209734"
+    "timestamp": "2025-12-08T15:18:41.004054"
   },
   {
-    "target": "Cloudflare",
-    "ip": "1.1.1.1",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      33.0,
-      -118.0
-    ],
-    "latency": 26.963,
-    "status": "ONLINE",
-    "timestamp": "2025-12-08T15:17:09.235365"
-  },
-  {
-    "target": "AWS East",
+    "target": "AWS Virginia",
     "ip": "52.94.76.1",
     "origin": [
       31.3113,
       -92.4451
     ],
     "dest": [
-      38.033,
-      -78.507
+      38.03,
+      -78.5
     ],
-    "latency": 77.938,
+    "latency": 81.168,
     "status": "ONLINE",
-    "timestamp": "2025-12-08T15:17:11.312485"
+    "timestamp": "2025-12-08T15:18:43.088105"
   },
   {
     "target": "Azure East",
@@ -55,23 +40,113 @@
       36.66,
       -78.39
     ],
-    "latency": 28.327,
+    "latency": 28.963,
     "status": "ONLINE",
-    "timestamp": "2025-12-08T15:17:13.345007"
+    "timestamp": "2025-12-08T15:18:45.122757"
   },
   {
-    "target": "Quad9",
-    "ip": "9.9.9.9",
+    "target": "BBC London",
+    "ip": "151.101.192.81",
     "origin": [
       31.3113,
       -92.4451
     ],
     "dest": [
-      37.87,
-      -122.27
+      51.5,
+      -0.12
     ],
-    "latency": 29.789,
+    "latency": 22.477,
     "status": "ONLINE",
-    "timestamp": "2025-12-08T15:17:15.380428"
+    "timestamp": "2025-12-08T15:18:47.149092"
+  },
+  {
+    "target": "Frankfurt DE-CIX",
+    "ip": "80.81.192.1",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      50.11,
+      8.68
+    ],
+    "latency": 0,
+    "status": "OFFLINE",
+    "timestamp": "2025-12-08T15:18:51.222698"
+  },
+  {
+    "target": "Google Tokyo",
+    "ip": "172.217.25.14",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      35.67,
+      139.76
+    ],
+    "latency": 227.291,
+    "status": "ONLINE",
+    "timestamp": "2025-12-08T15:18:53.451943"
+  },
+  {
+    "target": "Singapore SGIX",
+    "ip": "103.11.234.1",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      1.35,
+      103.81
+    ],
+    "latency": 0,
+    "status": "OFFLINE",
+    "timestamp": "2025-12-08T15:18:57.494507"
+  },
+  {
+    "target": "Cloudflare Sydney",
+    "ip": "1.1.1.1",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      -33.86,
+      151.2
+    ],
+    "latency": 23.136,
+    "status": "ONLINE",
+    "timestamp": "2025-12-08T15:18:59.524813"
+  },
+  {
+    "target": "Sao Paulo IX",
+    "ip": "187.16.216.1",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      -23.55,
+      -46.63
+    ],
+    "latency": 0,
+    "status": "OFFLINE",
+    "timestamp": "2025-12-08T15:19:03.574472"
+  },
+  {
+    "target": "Johannesburg INX",
+    "ip": "196.223.22.1",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      -26.2,
+      28.04
+    ],
+    "latency": 0,
+    "status": "OFFLINE",
+    "timestamp": "2025-12-08T15:19:07.617571"
   }
 ]
