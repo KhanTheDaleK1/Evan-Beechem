@@ -1,152 +1,138 @@
-[
-  {
-    "target": "Google DNS (US)",
-    "ip": "8.8.8.8",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      37.4,
-      -122.07
-    ],
-    "latency": 32.519,
-    "status": "ONLINE",
-    "timestamp": "2025-12-08T15:18:41.004054"
-  },
-  {
-    "target": "AWS Virginia",
-    "ip": "52.94.76.1",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      38.03,
-      -78.5
-    ],
-    "latency": 81.168,
-    "status": "ONLINE",
-    "timestamp": "2025-12-08T15:18:43.088105"
-  },
-  {
-    "target": "Azure East",
-    "ip": "13.107.21.200",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      36.66,
-      -78.39
-    ],
-    "latency": 28.963,
-    "status": "ONLINE",
-    "timestamp": "2025-12-08T15:18:45.122757"
-  },
-  {
-    "target": "BBC London",
-    "ip": "151.101.192.81",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      51.5,
-      -0.12
-    ],
-    "latency": 22.477,
-    "status": "ONLINE",
-    "timestamp": "2025-12-08T15:18:47.149092"
-  },
-  {
-    "target": "Frankfurt DE-CIX",
-    "ip": "80.81.192.1",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      50.11,
-      8.68
-    ],
-    "latency": 0,
-    "status": "OFFLINE",
-    "timestamp": "2025-12-08T15:18:51.222698"
-  },
-  {
-    "target": "Google Tokyo",
-    "ip": "172.217.25.14",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      35.67,
-      139.76
-    ],
-    "latency": 227.291,
-    "status": "ONLINE",
-    "timestamp": "2025-12-08T15:18:53.451943"
-  },
-  {
-    "target": "Singapore SGIX",
-    "ip": "103.11.234.1",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      1.35,
-      103.81
-    ],
-    "latency": 0,
-    "status": "OFFLINE",
-    "timestamp": "2025-12-08T15:18:57.494507"
-  },
-  {
-    "target": "Cloudflare Sydney",
-    "ip": "1.1.1.1",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      -33.86,
-      151.2
-    ],
-    "latency": 23.136,
-    "status": "ONLINE",
-    "timestamp": "2025-12-08T15:18:59.524813"
-  },
-  {
-    "target": "Sao Paulo IX",
-    "ip": "187.16.216.1",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      -23.55,
-      -46.63
-    ],
-    "latency": 0,
-    "status": "OFFLINE",
-    "timestamp": "2025-12-08T15:19:03.574472"
-  },
-  {
-    "target": "Johannesburg INX",
-    "ip": "196.223.22.1",
-    "origin": [
-      31.3113,
-      -92.4451
-    ],
-    "dest": [
-      -26.2,
-      28.04
-    ],
-    "latency": 0,
-    "status": "OFFLINE",
-    "timestamp": "2025-12-08T15:19:07.617571"
-  }
-]
+{
+  "network": [
+    {
+      "type": "NET",
+      "name": "Google DNS",
+      "origin": [
+        31.3113,
+        -92.4451
+      ],
+      "dest": [
+        37.4,
+        -122.07
+      ],
+      "status": "ONLINE",
+      "latency": 32.477,
+      "jitter": 0,
+      "history": [
+        32.477
+      ],
+      "ip": "8.8.8.8"
+    },
+    {
+      "type": "NET",
+      "name": "AWS Virginia",
+      "origin": [
+        31.3113,
+        -92.4451
+      ],
+      "dest": [
+        38.03,
+        -78.5
+      ],
+      "status": "ONLINE",
+      "latency": 78.753,
+      "jitter": 0,
+      "history": [
+        78.753
+      ],
+      "ip": "52.94.76.1"
+    },
+    {
+      "type": "NET",
+      "name": "Azure East",
+      "origin": [
+        31.3113,
+        -92.4451
+      ],
+      "dest": [
+        36.66,
+        -78.39
+      ],
+      "status": "ONLINE",
+      "latency": 28.251,
+      "jitter": 0,
+      "history": [
+        28.251
+      ],
+      "ip": "13.107.21.200"
+    },
+    {
+      "type": "NET",
+      "name": "London Core",
+      "origin": [
+        31.3113,
+        -92.4451
+      ],
+      "dest": [
+        51.5,
+        -0.12
+      ],
+      "status": "ONLINE",
+      "latency": 22.79,
+      "jitter": 0,
+      "history": [
+        22.79
+      ],
+      "ip": "151.101.192.81"
+    },
+    {
+      "type": "NET",
+      "name": "Tokyo Core",
+      "origin": [
+        31.3113,
+        -92.4451
+      ],
+      "dest": [
+        35.67,
+        139.76
+      ],
+      "status": "ONLINE",
+      "latency": 227.495,
+      "jitter": 0,
+      "history": [
+        227.495
+      ],
+      "ip": "172.217.25.14"
+    }
+  ],
+  "services": [
+    {
+      "type": "SVC",
+      "name": "MY DASHBOARD",
+      "url": "https://beechem.site",
+      "status": "ONLINE",
+      "code": 200,
+      "latency": 298,
+      "ssl": 86
+    },
+    {
+      "type": "SVC",
+      "name": "GITHUB API",
+      "url": "https://api.github.com",
+      "status": "ONLINE",
+      "code": 200,
+      "latency": 280,
+      "ssl": 59
+    },
+    {
+      "type": "SVC",
+      "name": "PLANESPOTTERS",
+      "url": "https://api.planespotters.net/pub/v1/hex/A2C34F",
+      "status": "CRITICAL",
+      "code": 404,
+      "latency": 648,
+      "ssl": 49
+    },
+    {
+      "type": "SVC",
+      "name": "AIRPLANES.LIVE",
+      "url": "https://api.airplanes.live/",
+      "status": "CRITICAL",
+      "code": 404,
+      "latency": 366,
+      "ssl": 34
+    }
+  ],
+  "updated": "2025-12-08T15:24:55.140045"
+}

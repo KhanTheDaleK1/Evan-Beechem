@@ -2,111 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBAL NETWATCH // LIVE</title>
+    <title>OPENEYES // SENTINEL</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --term-green: #00ff00; --term-red: #ff3333; --bg-color: #0d0d0d; --font-stack: 'Courier New', monospace; }
         body { margin: 0; background: var(--bg-color); color: var(--term-green); font-family: var(--font-stack); overflow: hidden; }
-        canvas#matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; }
-        
-        #ui-container { position: relative; width: 100vw; height: 100vh; display: grid; grid-template-rows: 60px 1fr 200px; }
+        canvas#matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
+        #ui-container { position: relative; width: 100vw; height: 100vh; display: grid; grid-template-rows: 60px 1fr 250px; }
         
         header { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; border-bottom: 2px solid var(--term-green); background: rgba(0, 20, 0, 0.9); z-index: 10; }
         h1 { font-size: 1.5rem; letter-spacing: 2px; margin: 0; text-shadow: 0 0 5px var(--term-green); }
         .back-btn { text-decoration: none; color: black; background: var(--term-green); padding: 5px 15px; font-weight: bold; }
 
         #map { width: 100%; height: 100%; background: black; }
-        /* Matrix Filter */
         .leaflet-tile-pane { filter: invert(100%) sepia(100%) hue-rotate(70deg) saturate(300%) contrast(110%) brightness(1.5); }
-        .leaflet-marker-icon, .leaflet-popup-content-wrapper { filter: none !important; }
-
-        footer { background: rgba(0, 10, 0, 0.95); border-top: 2px solid var(--term-green); padding: 10px; z-index: 10; overflow-y: auto; }
+        .leaflet-marker-icon, .leaflet-popup-content-wrapper, .leaflet-overlay-pane { filter: none !important; }
+        
+        /* FOOTER GRID (Split Net/Svc) */
+        footer { background: rgba(0, 10, 0, 0.95); border-top: 2px solid var(--term-green); padding: 0; z-index: 10; display: grid; grid-template-columns: 2fr 1fr; }
+        
+        .panel { padding: 10px; overflow-y: auto; border-right: 1px solid #004400; }
+        h3 { margin: 0 0 10px 0; border-bottom: 1px dashed #004400; font-size: 0.9rem; color: #88ff88; }
+        
         table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
-        th { text-align: left; border-bottom: 1px dashed #004400; color: #88ff88; padding: 5px; }
-        td { padding: 5px; border-bottom: 1px solid #004400; }
-        tr:hover { background: #002200; cursor: crosshair; }
+        td { padding: 4px; border-bottom: 1px solid #004400; }
         
-        .status-crit { color: var(--term-red); font-weight: bold; animation: blink 1s infinite alternate; }
-        @keyframes blink { 0% { opacity: 1; } 100% { opacity: 0.5; } }
+        .sparkline { width: 50px; height: 15px; display: inline-block; vertical-align: middle; border-bottom: 1px solid #004400; }
+        .bar { display: inline-block; width: 4px; background: var(--term-green); margin-right: 1px; }
         
-        /* Custom Popup */
-        .leaflet-popup-content-wrapper { background: #000; border: 1px solid var(--term-green); color: var(--term-green); border-radius: 0; font-family: monospace; }
-        .leaflet-popup-tip { background: var(--term-green); }
-        a.news-link { color: #fff; text-decoration: underline; }
+        .status-ok { color: #0f0; }
+        .status-fail { color: #f00; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } }
     </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
     <div id="ui-container">
         <header>
-            <h1>// GLOBAL NETWATCH //</h1>
-            <a href="index.html" class="back-btn">[ MAIN MENU ]</a>
+            <h1>// SENTINEL // GLOBAL INTELLIGENCE</h1>
+            <a href="index.html" class="back-btn">[ RETURN ]</a>
         </header>
         <div id="map-wrapper"><div id="map"></div></div>
         <footer>
-            <table id="sector-table">
-                <thead><tr><th>PROVIDER</th><th>LOCATION</th><th>SEVERITY</th><th>REPORTED</th><th>DETAILS</th></tr></thead>
-                <tbody id="table-body"><tr><td colspan="5">INITIALIZING SATELLITE LINK...</td></tr></tbody>
-            </table>
+            <div class="panel">
+                <h3>NETWORK BACKBONE (PING/TRACE)</h3>
+                <table id="net-table"></table>
+            </div>
+            <div class="panel">
+                <h3>CRITICAL SERVICES (HTTP/SSL)</h3>
+                <table id="svc-table"></table>
+            </div>
         </footer>
     </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // CONFIG
-        const map = L.map('map', { zoomControl: false }).setView([30, -10], 2); // World View
+        const map = L.map('map', { zoomControl: false }).setView([20, 0], 2);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(map);
 
-        // LIVE DATA FETCH
-        async function updateMap() {
+        async function updateData() {
             try {
-                // Fetch JSON generated by Python Bot
-                const res = await fetch('live_outages.json?v=' + Date.now());
-                const outages = await res.json();
+                // 1. Fetch Outages (News)
+                const resOut = await fetch('live_outages.json?v=' + Date.now());
+                const outages = await resOut.json();
+                map.eachLayer(l => { if(l instanceof L.CircleMarker) map.removeLayer(l); });
                 
-                const table = document.getElementById('table-body');
-                table.innerHTML = ''; // Clear old data
-                
-                // Clear old markers (naive approach: clear all layers except tiles)
-                map.eachLayer((layer) => {
-                    if (layer instanceof L.CircleMarker) { map.removeLayer(layer); }
+                outages.forEach(a => {
+                    L.circleMarker(a.coords, { color: '#f00', radius: 8, fillOpacity: 0.8 }).addTo(map)
+                     .bindPopup(`<b>${a.isp} OUTAGE</b><br>${a.loc}`);
                 });
 
-                if(outages.length === 0) {
-                    table.innerHTML = '<tr><td colspan="5">NO ACTIVE CRITICAL ALERTS</td></tr>';
-                    return;
-                }
+                // 2. Fetch Sentinel Data (Health)
+                const resNet = await fetch('network_health.json?v=' + Date.now());
+                const health = await resNet.json();
+                
+                // RENDER NETWORK TABLE
+                const netTable = document.getElementById('net-table');
+                netTable.innerHTML = '<tr><th>TARGET</th><th>STATUS</th><th>LATENCY</th><th>JITTER</th><th>TREND</th></tr>';
+                
+                health.network.forEach(n => {
+                    const isUp = n.status === "ONLINE";
+                    const color = isUp ? "#0f0" : "#f00";
+                    
+                    // Draw Line
+                    L.polyline([n.origin, n.dest], { color: color, weight: 1, opacity: 0.5 }).addTo(map);
+                    L.circleMarker(n.dest, { color: color, radius: 4 }).addTo(map);
 
-                outages.forEach(alert => {
-                    // Draw Marker
-                    const color = alert.isp === "Unknown Provider" ? "#ffaa00" : "#ff0000";
-                    L.circleMarker(alert.coords, {
-                        color: color, fillColor: color, fillOpacity: 0.5, radius: 8
-                    }).addTo(map).bindPopup(`
-                        <b>${alert.isp} OUTAGE</b><br>
-                        ${alert.loc}<br>
-                        <a href="${alert.link}" target="_blank" class="news-link">READ REPORT >></a>
-                    `);
+                    // Draw Sparkline (History)
+                    let spark = "";
+                    if(n.history) {
+                        n.history.forEach(h => {
+                            let hPct = Math.min(100, h) / 2; 
+                            spark += `<span class="bar" style="height:${hPct}px;"></span>`;
+                        });
+                    }
 
-                    // Add to Table
                     const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${alert.isp}</td>
-                        <td>${alert.loc}</td>
-                        <td class="status-crit">CRITICAL</td>
-                        <td>${new Date(alert.time).toLocaleTimeString()}</td>
-                        <td><a href="${alert.link}" target="_blank" style="color:#0f0;">SOURCE</a></td>
-                    `;
-                    row.addEventListener('click', () => {
-                        map.setView(alert.coords, 10);
-                    });
-                    table.appendChild(row);
+                    row.innerHTML = `<td>${n.name}</td><td class="${isUp?'status-ok':'status-fail'}">${n.status}</td><td>${n.latency}ms</td><td>${n.jitter.toFixed(1)}ms</td><td><div class="sparkline">${spark}</div></td>`;
+                    netTable.appendChild(row);
                 });
 
-            } catch (e) {
-                console.log("Data Link Offline", e);
-            }
+                // RENDER SERVICES TABLE
+                const svcTable = document.getElementById('svc-table');
+                svcTable.innerHTML = '<tr><th>SERVICE</th><th>STATUS</th><th>SSL EXPIRY</th></tr>';
+                
+                health.services.forEach(s => {
+                    const isOk = s.status === "ONLINE";
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${s.name}</td><td class="${isOk?'status-ok':'status-fail'}">${s.status} (${s.code})</td><td>${s.ssl} DAYS</td>`;
+                    svcTable.appendChild(row);
+                });
+
+            } catch(e) { console.log("Link Error", e); }
         }
 
         // MATRIX BG
@@ -125,8 +131,7 @@
         }
         setInterval(drawMatrix, 33);
         
-        // Start System
-        updateMap();
+        updateData();
     </script>
 </body>
 </html>
