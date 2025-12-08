@@ -1,0 +1,77 @@
+[
+  {
+    "target": "Google DNS",
+    "ip": "8.8.8.8",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      37.4056,
+      -122.0775
+    ],
+    "latency": 28.369,
+    "status": "ONLINE",
+    "timestamp": "2025-12-08T15:15:27.191753"
+  },
+  {
+    "target": "Cloudflare",
+    "ip": "1.1.1.1",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      33.0,
+      -118.0
+    ],
+    "latency": 21.973,
+    "status": "ONLINE",
+    "timestamp": "2025-12-08T15:15:29.218423"
+  },
+  {
+    "target": "AWS East",
+    "ip": "52.94.76.1",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      38.033,
+      -78.507
+    ],
+    "latency": 80.09,
+    "status": "ONLINE",
+    "timestamp": "2025-12-08T15:15:31.300728"
+  },
+  {
+    "target": "Azure East",
+    "ip": "20.60.24.10",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      36.66,
+      -78.39
+    ],
+    "latency": 0,
+    "status": "OFFLINE",
+    "timestamp": "2025-12-08T15:15:34.318721"
+  },
+  {
+    "target": "Quad9",
+    "ip": "9.9.9.9",
+    "origin": [
+      31.3113,
+      -92.4451
+    ],
+    "dest": [
+      37.87,
+      -122.27
+    ],
+    "latency": 29.786,
+    "status": "ONLINE",
+    "timestamp": "2025-12-08T15:15:36.352664"
+  }
+]
