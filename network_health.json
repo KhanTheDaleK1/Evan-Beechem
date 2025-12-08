@@ -12,10 +12,11 @@
         -122.07
       ],
       "status": "ONLINE",
-      "latency": 32.477,
-      "jitter": 0,
+      "latency": 28.272,
+      "jitter": 4.204999999999998,
       "history": [
-        32.477
+        32.477,
+        28.272
       ],
       "ip": "8.8.8.8"
     },
@@ -31,10 +32,11 @@
         -78.5
       ],
       "status": "ONLINE",
-      "latency": 78.753,
-      "jitter": 0,
+      "latency": 79.653,
+      "jitter": 0.9000000000000057,
       "history": [
-        78.753
+        78.753,
+        79.653
       ],
       "ip": "52.94.76.1"
     },
@@ -50,10 +52,11 @@
         -78.39
       ],
       "status": "ONLINE",
-      "latency": 28.251,
-      "jitter": 0,
+      "latency": 28.323,
+      "jitter": 0.07199999999999918,
       "history": [
-        28.251
+        28.251,
+        28.323
       ],
       "ip": "13.107.21.200"
     },
@@ -69,10 +72,11 @@
         -0.12
       ],
       "status": "ONLINE",
-      "latency": 22.79,
-      "jitter": 0,
+      "latency": 22.62,
+      "jitter": 0.16999999999999815,
       "history": [
-        22.79
+        22.79,
+        22.62
       ],
       "ip": "151.101.192.81"
     },
@@ -88,10 +92,11 @@
         139.76
       ],
       "status": "ONLINE",
-      "latency": 227.495,
-      "jitter": 0,
+      "latency": 227.686,
+      "jitter": 0.1910000000000025,
       "history": [
-        227.495
+        227.495,
+        227.686
       ],
       "ip": "172.217.25.14"
     }
@@ -103,7 +108,7 @@
       "url": "https://beechem.site",
       "status": "ONLINE",
       "code": 200,
-      "latency": 298,
+      "latency": 215,
       "ssl": 86
     },
     {
@@ -112,7 +117,7 @@
       "url": "https://api.github.com",
       "status": "ONLINE",
       "code": 200,
-      "latency": 280,
+      "latency": 317,
       "ssl": 59
     },
     {
@@ -121,7 +126,7 @@
       "url": "https://api.planespotters.net/pub/v1/hex/A2C34F",
       "status": "CRITICAL",
       "code": 404,
-      "latency": 648,
+      "latency": 312,
       "ssl": 49
     },
     {
@@ -130,9 +135,9 @@
       "url": "https://api.airplanes.live/",
       "status": "CRITICAL",
       "code": 404,
-      "latency": 366,
+      "latency": 314,
       "ssl": 34
     }
   ],
-  "updated": "2025-12-08T15:24:55.140045"
+  "updated": "2025-12-08T15:30:39.591717"
 }
