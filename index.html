@@ -1,131 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <meta name="robots" content="noindex, noarchive, nosnippet">
-    <meta name="google-extended" content="allow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evan Beechem | Cyber Ops</title>
-    <link rel="stylesheet" href="style.css">
+    <title>BEECHEM.SITE // GATEWAY</title>
+    <meta name="robots" content="noindex, noarchive, nosnippet">
+    <meta name="google-extended" content="allow">
+    
+    <style>
+        :root { --term-green: #00ff00; --bg-color: #0d0d0d; --font-stack: 'Courier New', monospace; }
+        body { margin: 0; padding: 0; background-color: var(--bg-color); color: var(--term-green); font-family: var(--font-stack); overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; }
+        
+        /* Matrix Rain */
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
+        
+        /* Container */
+        .container { z-index: 10; text-align: center; border: 2px solid var(--term-green); padding: 40px; background: rgba(0, 20, 0, 0.9); box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); }
+        
+        h1 { font-size: 2.5rem; letter-spacing: 5px; margin: 0 0 20px 0; text-shadow: 0 0 10px var(--term-green); border-bottom: 1px dashed var(--term-green); padding-bottom: 10px; }
+        p { font-size: 1rem; margin-bottom: 30px; opacity: 0.8; }
+        
+        /* Buttons */
+        .btn { display: inline-block; padding: 15px 30px; border: 2px solid var(--term-green); color: var(--term-green); text-decoration: none; font-weight: bold; font-size: 1.2rem; transition: all 0.2s; background: black; letter-spacing: 2px; }
+        .btn:hover { background: var(--term-green); color: black; box-shadow: 0 0 15px var(--term-green); cursor: pointer; }
+        
+        .footer { margin-top: 20px; font-size: 0.8rem; opacity: 0.5; }
+    </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
-
+    
     <div class="container">
-        <header>
-            <h1>EVAN BEECHEM</h1>
-            <p>OT Systems Engineer | Automation Specialist | Cyber Ops</p>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-        <a href="outage_map.html" class="nav-item">[ NETWORK STATUS ]</a>
-                <a href="#feeders">Feeders</a>
-                <a href="#archives">Archives</a>
-                <a href="#contact">Contact</a>
-                <a href="https://ops.beechem.site" target="_blank" class="op-link">[ OP_CENTER ]</a>
-            </nav>
-        </header>
-
-        <section id="about" class="panel">
-            <h2>// STATUS: ACTIVE</h2>
-            <p>
-                <strong>Current Role:</strong> OT Systems Engineer at Dis-Tran Steel<br>
-                <strong>Location:</strong> Operational Node [Pineville, LA]<br>
-                <strong>Updated:</strong> 2025-12-04
-            </p>
-            <hr style="border-color:#004400; margin: 15px 0;">
-            <p>
-                OT Systems Engineer at Dis-Tran Steel in Pineville, LA. I specialize in industrial automation, controls engineering, and operational technology networking across Industry 3.0, 4.0 and Industry 5.0 environments. My background includes PLC programming, HMI/SCADA design, robotics integration, and smart manufacturing systems.
-            </p>
-            <p>
-                I focus on driving reliability, efficiency, and cybersecurity within connected plant architectures — bridging the gap between IT and OT through data-driven automation, system integration, and industrial connectivity.
-            </p>
-        </section>
-
+        <h1>BEECHEM.SITE</h1>
+        <p>SECURE INTELLIGENCE GATEWAY</p>
         
-        <section id="feeders" class="panel">
-            <h2>// FEEDER_UPLINK_STATUS</h2>
-            <p>Live statistics for this station across global aggregation networks.</p>
-            <ul style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 8px;">
-                    <strong style="color:#00aaff">FlightAware:</strong> 
-                    <span style="color:#0f0">CONNECTED</span> 
-                    <a href="https://flightaware.com/adsb/stats/user/khanthedalek1" target="_blank" style="font-size:0.8em; margin-left:10px;">[VIEW STATS]</a>
-                </li>
-                <li style="margin-bottom: 8px;">
-                    <strong style="color:#ffcc00">FlightRadar24:</strong> 
-                    <span style="color:#0f0">CONNECTED</span> 
-                    <a href="https://www.flightradar24.com/account/data-sharing" target="_blank" style="font-size:0.8em; margin-left:10px;">[VIEW STATS]</a>
-                </li>
-                <li style="margin-bottom: 8px;">
-                    <strong style="color:#ff0000">ADS-B Exchange:</strong> 
-                    <span style="color:#0f0">CONNECTED</span> 
-                    <a href="https://www.adsbexchange.com/myip" target="_blank" style="font-size:0.8em; margin-left:10px;">[VIEW STATS]</a>
-                </li>
-                <li style="margin-bottom: 8px;">
-                    <strong style="color:#00ff00">Airplanes.live:</strong> 
-                    <span style="color:#0f0">CONNECTED</span> 
-                    <a href="https://airplanes.live/myfeed" target="_blank" style="font-size:0.8em; margin-left:10px;">[VIEW STATS]</a>
-                </li>
-            </ul>
-        </section>
-
-        <section id="projects" class="panel">
-            <h2>// ACTIVE_PROJECTS</h2>
-            <ul>
-                <li style="margin-bottom: 10px;">
-                    <strong><a href="https://ops.beechem.site" target="_blank">Cyber Ops Dashboard</a>:</strong> 
-                    Custom Linux control center for ADS-B tracking and telemetry. 
-                    <span style="color:#ff0000; font-size:0.8em;">[SECURE ACCESS ONLY]</span>
-                </li>
-                <li style="margin-bottom: 10px;">
-                    <strong>Flight Tracker Node:</strong> Real-time aviation monitoring feeding FlightAware, FR24, ADSBx, and Airplanes.live.
-                </li>
-                <li style="margin-bottom: 10px;">
-                    <strong>AutoISO Backup:</strong> Automated tool for live-system imaging and cloud upload.
-                </li>
-            </ul>
-        </section>
-
-        <section id="archives" class="panel">
-            <h2>// LEGACY_ARCHIVES (2019-2024)</h2>
-            <p>Historical engineering projects and case studies.</p>
-            <ul>
-                <li style="margin-bottom: 15px;">
-                    <strong>Home Lab & Automation (2019-2024):</strong> 
-                    Evolution of a residential server rack. Started with Raspberry Pi/IoT integration for security cameras and media; evolved into a multi-server cluster managing 3D printing, off-site backups, and local automation.
-                    <br><span style="color:#008800; font-size:0.9em;">[Tech: Raspberry Pi, Phillips Hue, NAS, IT/OT Networking]</span>
-                    <br><a href="https://evanbeechem.wordpress.com/home-lab/" target="_blank" style="display:inline-block; margin-top:5px; border:1px solid #005500; padding:2px 5px; font-size:0.8em;">>> VIEW LOG ENTRY</a>
-                </li>
-            </ul>
-        </section>
-
-        <section id="certs" class="panel">
-            <h2>// CREDENTIALS_DATABASE</h2>
-            <ul style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><span style="color:#0f0;">[CERT]</span> <strong>Ignition 8.1 Credential</strong> - Inductive Automation</li>
-                <li style="margin-bottom: 10px;"><span style="color:#0f0;">[CERT]</span> <strong>NSE 1 & 2 Network Security Associate</strong> - Fortinet</li>
-                <li style="margin-bottom: 10px;"><span style="color:#0f0;">[CERT]</span> <strong>HMI Design & PLC Support</strong> - Online PLC Support Training Center</li>
-            </ul>
-        </section>
-
-        <section id="contact" class="panel">
-            <h2>// COMMUNICATION_UPLINK</h2>
-            <p>
-                Primary Email: <a href="mailto:evan.t.beechem@gmail.com">evan.t.beechem@gmail.com</a><br>
-                LinkedIn: <a href="https://www.linkedin.com/in/evan-beechem-34115b151/" target="_blank">Evan Beechem</a><br>
-                GitHub: <a href="https://github.com/khanthedalek1" target="_blank">khanthedalek1</a><br>
-                Instagram: <a href="https://www.instagram.com/evan.drumming/" target="_blank">@evan.drumming</a><br>
-                TikTok: <a href="https://www.tiktok.com/@evan_vibing?_r=1&_t=ZP-91yV5pq1mFb" target="_blank">@evan_vibing</a>
-            </p>
-        </section>
-
-        <footer>
-            &copy; 2025 Evan Beechem. Systems Operational.
-        </footer>
+        <a href="outage_map.html" class="btn">>> ACCESS NETWATCH <<</a>
+        
+        <div class="footer">SYSTEM STATUS: NOMINAL</div>
     </div>
 
-    <script src="matrix.js"></script>
+    <script>
+        const c = document.getElementById("matrix"), ctx = c.getContext("2d");
+        c.height = window.innerHeight; c.width = window.innerWidth;
+        const font_size = 14, columns = c.width/font_size, drops = Array(Math.floor(columns)).fill(1);
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; ctx.fillRect(0, 0, c.width, c.height);
+            ctx.fillStyle = "#0F0"; ctx.font = font_size + "px arial";
+            drops.forEach((y, i) => {
+                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+                ctx.fillText(text, i*font_size, y*font_size);
+                if(y*font_size > c.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 33);
+        window.addEventListener('resize', () => { c.height=window.innerHeight; c.width=window.innerWidth; });
+    </script>
 </body>
 </html>
