@@ -1,0 +1,35 @@
+# --- AI & SEARCH CRAWLER POLICY ---
+# Default: Block Everything
+User-agent: *
+Disallow: /
+
+# --- WHITELIST: OPENAI ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: openai-user
+Allow: /
+
+# --- WHITELIST: GOOGLE / GEMINI ---
+User-agent: Googlebot
+Allow: /
+
+# Google-Extended controls Gemini training data access
+User-agent: Google-Extended
+Allow: /
+
+# --- EXPLICIT BLOCKS (Just in case they ignore *) ---
+User-agent: Bingbot
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
