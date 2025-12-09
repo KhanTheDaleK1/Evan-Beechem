@@ -22,6 +22,17 @@
     "time": "Tue, 09 Dec 2025 08:01:01 GMT"
   },
   {
+    "isp": "Unknown Provider",
+    "loc": "Northeast Wisconsin",
+    "coords": [
+      44.2910479,
+      -88.3574512
+    ],
+    "title": "Cellcom Customers Report Service Outages in Northeast Wisconsin - SSBCrack News",
+    "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOeVlvTndkT2p0dmxzZDFtX25xamduYWFHZlRhUzdnNV8zSGtuSEsyU1VNTE05Yy1ja19IaU5qOUNGdUd4TU9BcjJaOWozU1h4NXY5TXNiSlB6d1AwamV0ZnRKTGFjeTNFNU1wcEk4bGpmNVVJeGlkRlVQMzY3NzI3eGJVc1BZY05KbW41TmZJaWtDYmpx?oc=5",
+    "time": "Tue, 09 Dec 2025 12:16:04 GMT"
+  },
+  {
     "isp": "Starlink",
     "loc": "India",
     "coords": [
@@ -42,5 +53,16 @@
     "title": "I-65 shut down in Bartholomew, Jackson counties after military semi hauling ammunition catches fire; crash in backup closes interstate near Columbus - WTHR",
     "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxNYm0wTGRrUHpaOEIwc19BWDBFbG9JQ0dfZkt1dlBkTzc5dUhjS3E0c0F1NE5ITTRoV0tMUFNQSFNYSkZHLTkwLWNXUlRtZWdHQ3dVYkV2Z1NDV3plX1gyd0FEMERGRnZFdWlYNnpUSkJ3NkNtTk5BeF9odDRvOWVfNXJzTWtlbVdfcDFZYnZFRHBLQWtuNkZ0UUFKSFhGT0RfbHYyRVVPZXhON0lCb3V1S1hSNlY4cjR2VVhjTWp3VGUydmNOVHVCQUtuejNOUjBBSGZrTXhxNW50azAtbnNFSFN6YnNCTzQ3QjBCdkVFWTdMRk1kOFRwSTVvWWtGYkJoMHNMaUZrVHBSa253WVBtaVRjNzk?oc=5",
     "time": "Tue, 09 Dec 2025 13:27:00 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
+    "loc": "Milepost",
+    "coords": [
+      52.2757478,
+      -7.0813547
+    ],
+    "title": "Illinois - Traffic Alert: I-74 Westbound Down to One Lane at Milepost 167; Expect Delays Today - Country Herald",
+    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQUmJPS3NTa1hTdkRibmEwWmNkOUp1RTNoMXVRU2VuTW1Lc0M2SVVhNmNuRjJUTWRIQ2djZlZmdzJSVUR5V29Sd0hiRnNuRW8wTTVscEU1Z2V6clVVQ2xONy1HejdVdGRvaGtiakcxSDF6OHJKNFlCNHZqMUhCVU80RXVScTgxNm1PeGJkOXJ6bGlDSVZSdmU4NVFpUmFEUDZVMUttQklCbG1HWkwxR05HX2pkUnhaVEQ0TUdQX2xtdw?oc=5",
+    "time": "Tue, 09 Dec 2025 17:48:21 GMT"
   }
 ]
