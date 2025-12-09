@@ -11,6 +11,17 @@
     "time": "Tue, 09 Dec 2025 10:10:10 GMT"
   },
   {
+    "isp": "Unknown Provider",
+    "loc": "Haughton",
+    "coords": [
+      53.1030117,
+      -2.6323933
+    ],
+    "title": "Planned Water Service Interruption in Haughton - Bossier Press-Tribune",
+    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBvSG9sRzJRXzNvTVFOaTNEZEdwbUNHZlpqQkU5ZldVdXlyWjdJWG1SWGkwbDhkY0dWbkJQWmhkbFpRd05OcGZ6bW1DcG1PT2pVYXk2cTdVeEU0LVVwYmx4aG0weUU3Y1Y3cUVFX3J5azNfMlduRzc0SGlPVUQ?oc=5",
+    "time": "Mon, 08 Dec 2025 22:43:33 GMT"
+  },
+  {
     "isp": "Verizon",
     "loc": "Cape Coral Fort",
     "coords": [
@@ -34,17 +45,6 @@
   },
   {
     "isp": "Unknown Provider",
-    "loc": "Northumberland England",
-    "coords": [
-      55.25,
-      -2.000559
-    ],
-    "title": "Approval given to first phase of \u00a310bn data center in Northumberland, England - BeBeez International",
-    "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPdzBHc08yc1FJSzVsVUNzNFBud3JMdEdKbDdSQlpBUHlVMXlRVm9NZ0o0T05KQzZBM3JNbFpYMER4T09qc2Vxak9KU0IyV3NBNjZNVXFJUWVsYkh3Q214d3RsR3E1dnBYYnVEMUZKaER3OGVfTGl4NU5UcWVZZDNFc3B5S284R1ZCWW5YSGMxMzNpcUF4a2N0RVdwV003cWRXVXNyZEFqZFNwVFItX0E?oc=5",
-    "time": "Mon, 08 Dec 2025 12:07:26 GMT"
-  },
-  {
-    "isp": "Unknown Provider",
     "loc": "Fines",
     "coords": [
       37.360002,
@@ -56,13 +56,13 @@
   },
   {
     "isp": "Unknown Provider",
-    "loc": "December",
+    "loc": "Co",
     "coords": [
-      6.47814,
-      -10.66262
+      4.099917,
+      -72.9088133
     ],
-    "title": "Cloudflare (NET) Stock in December 2025: Outage Fallout, AI Ambitions and What the Latest Forecasts Say - ts2.tech",
-    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPRnMyNnlfcjBGbUh3R0d5ZENMM0Rna0NVZWRPM0RSR0pFbUJEcTlZZDYyZmRJaExzQUk5UXo1eWJjRWxPTmhseGhxWGZCVjJOU1dqWXhWWDRqRUlGSUNMSENMeXFxYTZud2pVQXhxZlRaXzJzak1rRkYyN014TDkxUmdaVlI2a2daVU1wc1pEUnpBOF8zNlhIZU5rLW1ERG9Ld1FidUNRUEduV2VkMUx4VTdTdzBweUhUNUpHRg?oc=5",
-    "time": "Tue, 09 Dec 2025 08:01:01 GMT"
+    "title": "Uisce \u00c9ireann advises of planned overnight outage to facilitate essential works in Co. Kildare - Kildare Now",
+    "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNREZrYUItWjdIUHVSci1kUnNtcDd3d3NpcllPLTRtR0xFWENCTU9JdGpiRXk4c05DaF9KZFVSMnZFdnI3aHo4RDZDMUlPZjROSWR1Z0ttS2dzMU15TDhuRmdJVUVqNnNySTVySWVPcDlJOGtWQjd5WE1PeC1ZV1dOVU02c1FxZm9oS0FtRlJiM0ZfSXpaZmxiejBtbkR0TGtmdk5DdWRCOUhzRmxFSnRabEl6dk1mOEpTc2hEX2dyN2E2OHdGZE03OVk2N0RzeUdzU09GRHk3MEQ1c2NGUndBMVJsaw?oc=5",
+    "time": "Mon, 08 Dec 2025 18:00:00 GMT"
   }
 ]
