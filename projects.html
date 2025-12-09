@@ -2,90 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACTIVE PROJECTS // EVAN BEECHEM</title>
     <style>
         :root { --term-green: #00ff00; --bg-color: #0d0d0d; --font-stack: 'Courier New', monospace; }
-        body { margin: 0; padding: 20px; background-color: var(--bg-color); color: var(--term-green); font-family: var(--font-stack); overflow-x: hidden; }
+        body { margin: 0; padding: 20px; background-color: var(--bg-color); color: var(--term-green); font-family: var(--font-stack); }
         canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
-        
         header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--term-green); padding-bottom: 20px; }
         h1 { font-size: 2rem; letter-spacing: 5px; margin: 0; text-shadow: 0 0 10px var(--term-green); }
         .back-btn { display: inline-block; margin-top: 10px; text-decoration: none; color: var(--term-green); border: 1px dashed var(--term-green); padding: 5px 15px; }
         .back-btn:hover { background: var(--term-green); color: black; }
-
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        
-        .card { 
-            border: 1px solid var(--term-green); 
-            background: rgba(0, 15, 0, 0.7); 
-            padding: 20px; 
-            transition: all 0.2s;
-            display: flex; flex-direction: column; justify-content: space-between;
-        }
+        .card { border: 1px solid var(--term-green); background: rgba(0, 15, 0, 0.7); padding: 20px; transition: all 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { box-shadow: 0 0 15px var(--term-green); transform: translateY(-5px); background: rgba(0, 30, 0, 0.9); }
-        
         h2 { margin: 0 0 10px 0; border-bottom: 1px dashed var(--term-green); padding-bottom: 5px; font-size: 1.2rem; }
         p { font-size: 0.9rem; opacity: 0.8; line-height: 1.5; flex-grow: 1; }
-        
         .btn-row { margin-top: 15px; text-align: right; }
-        .btn { 
-            text-decoration: none; color: black; background: var(--term-green); 
-            padding: 8px 15px; font-weight: bold; display: inline-block;
-        }
+        .btn { text-decoration: none; color: black; background: var(--term-green); padding: 8px 15px; font-weight: bold; display: inline-block; }
         .btn:hover { background: white; box-shadow: 0 0 10px white; }
-        
         .status { font-size: 0.8rem; margin-bottom: 10px; color: #88ff88; font-weight: bold; }
     </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
-    
-    <header>
-        <h1>ACTIVE PROJECTS</h1>
-        <a href="index.html" class="back-btn"><< RETURN TO MAIN</a>
-    </header>
-
+    <header><h1>ACTIVE PROJECTS</h1><a href="index.html" class="back-btn"><< RETURN TO MAIN</a></header>
     <div class="grid">
-        
         <div class="card">
             <h2>OP_CENTER [Internal]</h2>
-            <div class="status">STATUS: SECURE / RESTRICTED</div>
-            <p>The central command dashboard for my home lab infrastructure. Hosts the "Overwatch" tactical air defense radar, signals intelligence graphing, and system health telemetry. Only accessible via secure VPN or local LAN.</p>
-            <div class="btn-row">
-                <a href="https://ops.beechem.site" class="btn">ACCESS NODE >></a>
-            </div>
+            <div class="status">STATUS: SECURE</div>
+            <p>Central command dashboard hosting the "Overwatch" tactical radar and SIGINT tools.</p>
+            <div class="btn-row"><a href="https://ops.beechem.site" class="btn">ACCESS >></a></div>
         </div>
-
         <div class="card">
             <h2>PROJECT NETWATCH [Public]</h2>
-            <div class="status">STATUS: ONLINE / AUTOMATED</div>
-            <p>A global network intelligence platform. Uses a distributed python agent to scrape news for ISP outages and actively probe latency to major cloud providers. Automatically generates incident maps and pushes updates to GitHub every 15 minutes.</p>
-            <div class="btn-row">
-                <a href="outage_map.html" class="btn">VIEW MAP >></a>
-            </div>
+            <div class="status">STATUS: AUTOMATED</div>
+            <p>Global network intelligence platform monitoring ISP outages via OSINT scraping.</p>
+            <div class="btn-row"><a href="outage_map.html" class="btn">VIEW MAP >></a></div>
         </div>
-
         <div class="card">
             <h2>SKY-NODE [Pi 4]</h2>
-            <div class="status">STATUS: FEEDING / 1090 MHz</div>
-            <p>A dedicated Raspberry Pi 4 ADS-B receiver station. Feeds flight data to FlightAware, FlightRadar24, and ADSBExchange. Acts as the primary sensor for the "Overwatch" radar system using a high-gain antenna.</p>
-            <div class="btn-row">
-                <a href="https://flightaware.com/adsb/stats/user/KhanTheDalek" target="_blank" class="btn">VIEW STATS >></a>
-            </div>
+            <div class="status">STATUS: FEEDING</div>
+            <p>ADS-B receiver station feeding FlightAware/FR24. Primary sensor for Overwatch.</p>
+            <div class="btn-row"><a href="https://flightaware.com/adsb/stats/user/KhanTheDalek" target="_blank" class="btn">STATS >></a></div>
         </div>
-
         <div class="card">
-            <h2>OCTOPRINT [Fabrication]</h2>
+            <h2>OCTOPRINT</h2>
             <div class="status">STATUS: STANDBY</div>
-            <p>Remote management server for 3D printing operations. Handles G-Code slicing, webcam monitoring, and thermal telemetry for additive manufacturing projects.</p>
-            <div class="btn-row">
-                <a href="#" class="btn">ACCESS PRINTER >></a>
-            </div>
+            <p>Remote 3D printing management server.</p>
+            <div class="btn-row"><a href="#" class="btn">ACCESS >></a></div>
         </div>
-
     </div>
-
     <script>
         const c = document.getElementById("matrix"), ctx = c.getContext("2d");
         c.height = window.innerHeight; c.width = window.innerWidth;
