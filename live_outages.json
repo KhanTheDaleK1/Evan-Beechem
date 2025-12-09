@@ -1,16 +1,5 @@
 [
   {
-    "isp": "Unknown Provider",
-    "loc": "Haughton",
-    "coords": [
-      53.1030117,
-      -2.6323933
-    ],
-    "title": "Planned Water Service Interruption in Haughton - Bossier Press-Tribune",
-    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBvSG9sRzJRXzNvTVFOaTNEZEdwbUNHZlpqQkU5ZldVdXlyWjdJWG1SWGkwbDhkY0dWbkJQWmhkbFpRd05OcGZ6bW1DcG1PT2pVYXk2cTdVeEU0LVVwYmx4aG0weUU3Y1Y3cUVFX3J5azNfMlduRzc0SGlPVUQ?oc=5",
-    "time": "Mon, 08 Dec 2025 22:43:33 GMT"
-  },
-  {
     "isp": "Verizon",
     "loc": "Cape Coral Fort",
     "coords": [
@@ -20,6 +9,28 @@
     "title": "A Verizon outage due to a fiber issue impacted customers in Cape Coral, Fort Myers - Gulf Coast News and Weather",
     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWVRycFQyRVpjU3Vaa0lCVkdxSVo3QnpWc2NFVGExSGtNT3FlOGc1Njl6bDQtaGNyNUZGYkhPc3NGR284dE1jRXNHRkJmVzYzaDBjdUV4SDdjWGdlcnk1Q0R1M2lNdkFNY1IwVk1yYzlSa3lYSEMtZk9vTHJDbHEwYzVxRnIwa2hXVGlTSVhBOGVvcUFBN2FIWHdiS1RHSHN4b3VUOUFoUUJXQXFzTjYzR1p5YXdwOHVi?oc=5",
     "time": "Mon, 08 Dec 2025 12:39:00 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
+    "loc": "Fines",
+    "coords": [
+      37.360002,
+      -2.2632918
+    ],
+    "title": "FSS Imposes KRW 246 Million in Fines on Four Banks for Violations of Electronic Financial Transaction Safety Requirements - \uc54c\ud30c\uacbd\uc81c",
+    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBaZ0dnWFdERl8yZkhnemZLUHB3alNZVUlrc3BURHpaa29hV3puQlVRcl9XVjhjd1o4WWFvaXBheWxkcHpyWkI0eTNBazJ1NHFiaGdDQ3JXTUZleDJPMVJjUjRfdExjSmRfVGFudjBB0gFuQVVfeXFMUFpnR2dYV0RGXzJmSGd6ZktQcHdqU1lVSWtzcFREelprb2FXem5CVVFyX1dWOGN3WjhZYW9pcGF5bGRwenJaQjR5M0FrMnU0cWJoZ0NDcldNRmV4Mk8xUmNSNF90TGNKZF9UYW52MEE?oc=5",
+    "time": "Mon, 08 Dec 2025 18:10:03 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
+    "loc": "Haughton",
+    "coords": [
+      53.1030117,
+      -2.6323933
+    ],
+    "title": "Planned Water Service Interruption in Haughton - Bossier Press-Tribune",
+    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBvSG9sRzJRXzNvTVFOaTNEZEdwbUNHZlpqQkU5ZldVdXlyWjdJWG1SWGkwbDhkY0dWbkJQWmhkbFpRd05OcGZ6bW1DcG1PT2pVYXk2cTdVeEU0LVVwYmx4aG0weUU3Y1Y3cUVFX3J5azNfMlduRzc0SGlPVUQ?oc=5",
+    "time": "Mon, 08 Dec 2025 22:43:33 GMT"
   },
   {
     "isp": "Unknown Provider",
@@ -34,13 +45,24 @@
   },
   {
     "isp": "Unknown Provider",
-    "loc": "Fines",
+    "loc": "Aceh",
     "coords": [
-      37.360002,
-      -2.2632918
+      4.3685491,
+      97.0253024
     ],
-    "title": "FSS Imposes KRW 246 Million in Fines on Four Banks for Violations of Electronic Financial Transaction Safety Requirements - \uc54c\ud30c\uacbd\uc81c",
-    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBaZ0dnWFdERl8yZkhnemZLUHB3alNZVUlrc3BURHpaa29hV3puQlVRcl9XVjhjd1o4WWFvaXBheWxkcHpyWkI0eTNBazJ1NHFiaGdDQ3JXTUZleDJPMVJjUjRfdExjSmRfVGFudjBB0gFuQVVfeXFMUFpnR2dYV0RGXzJmSGd6ZktQcHdqU1lVSWtzcFREelprb2FXem5CVVFyX1dWOGN3WjhZYW9pcGF5bGRwenJaQjR5M0FrMnU0cWJoZ0NDcldNRmV4Mk8xUmNSNF90TGNKZF9UYW52MEE?oc=5",
-    "time": "Mon, 08 Dec 2025 18:10:03 GMT"
+    "title": "Electrical Engineering Students Offer Electronic Repair Services for Flood Victims in Aceh - Tempo.co English",
+    "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOMjJ1Y2hhQUJuN3ZWMDYtUVNZdGVCbnpmbU45TU1oWjNGR0NFTUJScjJsRFE5WFlHTXhRRFZMa0t6ZnVzNTJNQmlJQll0anBfc0ZlUzVOazNta1d1UDE0WEdqcU4xQmtHdnRVcWdNNUJtY0FET2phdGpTc183Tk9qNUZCN1A4NElVYUNxZUtCc0ZTaGxtOHhSS1lRRUNMQmRlRnNkYkZOekVheDAzTEtyeGRzMnJFRjZrbFBsTU5VcVRQNHFQY1hiRHFVRllxLVZPVW5TWWtFZGVPbGFRU1ZlOVE0Ym5oTDRaOG5qN2dzbERHclFSYVlST1kwSjBtR1U?oc=5",
+    "time": "Mon, 08 Dec 2025 11:48:26 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
+    "loc": "Co",
+    "coords": [
+      4.099917,
+      -72.9088133
+    ],
+    "title": "Uisce \u00c9ireann advises of planned overnight outage to facilitate essential works in Co. Kildare - Leinster Leader",
+    "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPV0RGY3Z2ZHhoTjFnRm5lb213MGxtalFjSl85TnRUWWFWVjkwdGZBYm10V3dEb3RGUUJBZzV6MWNubllvRWs3RXFXd1pIME9oZUtZQU9rWnltY3RjcmFxMVhaX3RzcXBtaTJZNFRseV9XOUNwb1l5ak5GNkxwX3FGU1RFUDl1WkhLdTQ5bVduUThXYzVuM1dFUkN4cVhhbk4xeDQtT0o0ekhKOEFkME9IMFJmdmRtZkR3ZlhFSUFJWXl4LXJHdHMtcDkzSW45d2xrSWVLZ29KWjRoSElmVXloc0IyX0U2d2s?oc=5",
+    "time": "Mon, 08 Dec 2025 18:13:05 GMT"
   }
 ]
