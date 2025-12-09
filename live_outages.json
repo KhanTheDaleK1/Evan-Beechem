@@ -1,5 +1,16 @@
 [
   {
+    "isp": "Unknown Provider",
+    "loc": "Haughton",
+    "coords": [
+      53.1030117,
+      -2.6323933
+    ],
+    "title": "Planned Water Service Interruption in Haughton - Bossier Press-Tribune",
+    "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBvSG9sRzJRXzNvTVFOaTNEZEdwbUNHZlpqQkU5ZldVdXlyWjdJWG1SWGkwbDhkY0dWbkJQWmhkbFpRd05OcGZ6bW1DcG1PT2pVYXk2cTdVeEU0LVVwYmx4aG0weUU3Y1Y3cUVFX3J5azNfMlduRzc0SGlPVUQ?oc=5",
+    "time": "Mon, 08 Dec 2025 22:43:33 GMT"
+  },
+  {
     "isp": "Verizon",
     "loc": "Cape Coral Fort",
     "coords": [
