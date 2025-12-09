@@ -6,23 +6,43 @@
     <title>EVAN BEECHEM // SYSTEM ENGINEER</title>
     <meta name="robots" content="noindex, noarchive, nosnippet">
     <meta name="google-extended" content="allow">
+    
     <style>
         :root { --term-green: #00ff00; --bg-color: #0d0d0d; --font-stack: 'Courier New', monospace; }
         body { margin: 0; padding: 20px; background-color: var(--bg-color); color: var(--term-green); font-family: var(--font-stack); overflow-x: hidden; }
+        
+        /* Matrix Rain */
         canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
+
+        /* Header */
         header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--term-green); padding-bottom: 20px; }
         h1 { font-size: 2.5rem; letter-spacing: 5px; margin: 0; text-shadow: 0 0 10px var(--term-green); }
         .subtitle { font-size: 1rem; opacity: 0.8; margin-top: 10px; }
+
+        /* Navigation Grid */
         .nav-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
-        .nav-item { text-decoration: none; color: var(--term-green); border: 1px solid var(--term-green); padding: 10px 20px; font-weight: bold; transition: 0.2s; background: rgba(0,0,0,0.8); }
+        .nav-item { 
+            text-decoration: none; color: var(--term-green); border: 1px solid var(--term-green); 
+            padding: 10px 20px; font-weight: bold; transition: 0.2s; background: rgba(0,0,0,0.8);
+        }
         .nav-item:hover { background: var(--term-green); color: black; box-shadow: 0 0 10px var(--term-green); }
+
+        /* Sections */
         .section-box { border: 1px solid var(--term-green); padding: 20px; margin-bottom: 20px; background: rgba(0, 10, 0, 0.6); }
         h2 { border-bottom: 1px dashed var(--term-green); padding-bottom: 5px; margin-top: 0; }
         p { line-height: 1.6; }
+
+        /* Status Panels */
+        .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .status-card { border: 1px solid var(--term-green); padding: 15px; }
+        .link-list a { display: block; color: var(--term-green); text-decoration: none; margin: 5px 0; }
+        .link-list a:hover { text-decoration: underline; }
+
     </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
+
     <div style="max-width: 1000px; margin: 0 auto;">
         <header>
             <h1>EVAN BEECHEM</h1>
@@ -31,7 +51,9 @@
 
         <div class="nav-grid">
             <a href="projects.html" class="nav-item">[ PROJECTS ]</a>
+            <a href="outage_map.html" class="nav-item">[ NETWORK STATUS ]</a>
             <a href="https://evanbeechem.wordpress.com" target="_blank" class="nav-item">[ ARCHIVES ]</a>
+            <a href="https://ops.beechem.site" class="nav-item">[ OP_CENTER ]</a>
         </div>
 
         <div class="section-box">
@@ -39,9 +61,32 @@
             <p><strong>Current Role:</strong> OT Systems Engineer at Dis-Tran Steel</p>
             <p><strong>Location:</strong> Operational Node [Pineville, LA]</p>
             <br>
-            <p>OT Systems Engineer specializing in industrial automation, controls engineering, and operational technology networking across Industry 3.0, 4.0 and Industry 5.0 environments.</p>
+            <p>OT Systems Engineer specializing in industrial automation, controls engineering, and operational technology networking across Industry 3.0, 4.0 and Industry 5.0 environments. My background includes PLC programming, HMI/SCADA design, robotics integration, and smart manufacturing systems.</p>
+            <p>I focus on driving reliability, efficiency, and cybersecurity within connected plant architectures — bridging the gap between IT and OT through data-driven automation.</p>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <h2>// FEEDER_UPLINK_STATUS</h2>
+                <p>Live statistics for this station across global aggregation networks.</p>
+                <div class="link-list">
+                    <a href="https://flightaware.com/adsb/stats/user/KhanTheDalek" target="_blank">> FlightAware: CONNECTED</a>
+                    <a href="https://www.flightradar24.com/account/feed-stats" target="_blank">> FlightRadar24: CONNECTED</a>
+                    <a href="https://www.adsbexchange.com/myip/" target="_blank">> ADS-B Exchange: CONNECTED</a>
+                    <a href="https://airplanes.live/" target="_blank">> Airplanes.live: CONNECTED</a>
+                </div>
+            </div>
+            
+            <div class="status-card">
+                <h2>// ACTIVE_PROJECTS</h2>
+                <div class="link-list">
+                    <a href="outage_map.html">> PROJECT NETWATCH (Global Intelligence)</a>
+                    <a href="https://ops.beechem.site">> PROJECT OVERWATCH (Airspace Defense)</a>
+                </div>
+            </div>
         </div>
     </div>
+
     <script>
         const c = document.getElementById("matrix"), ctx = c.getContext("2d");
         c.height = window.innerHeight; c.width = window.innerWidth;
