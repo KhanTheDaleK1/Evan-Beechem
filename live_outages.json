@@ -1,5 +1,16 @@
 [
   {
+    "isp": "Verizon",
+    "loc": "Cape Coral Fort",
+    "coords": [
+      26.5983146,
+      -81.8498092
+    ],
+    "title": "A Verizon outage due to a fiber issue impacted customers in Cape Coral, Fort Myers - Gulf Coast News and Weather",
+    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWVRycFQyRVpjU3Vaa0lCVkdxSVo3QnpWc2NFVGExSGtNT3FlOGc1Njl6bDQtaGNyNUZGYkhPc3NGR284dE1jRXNHRkJmVzYzaDBjdUV4SDdjWGdlcnk1Q0R1M2lNdkFNY1IwVk1yYzlSa3lYSEMtZk9vTHJDbHEwYzVxRnIwa2hXVGlTSVhBOGVvcUFBN2FIWHdiS1RHSHN4b3VUOUFoUUJXQXFzTjYzR1p5YXdwOHVi?oc=5",
+    "time": "Mon, 08 Dec 2025 12:39:00 GMT"
+  },
+  {
     "isp": "Unknown Provider",
     "loc": "Fines",
     "coords": [
@@ -12,17 +23,6 @@
   },
   {
     "isp": "Unknown Provider",
-    "loc": "Hutto",
-    "coords": [
-      30.5427638,
-      -97.5468898
-    ],
-    "title": "Texas Veterans Commission Services Now Available in Hutto - City of Hutto, TX (.gov)",
-    "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE0wLS1OM1hyMk9tNG5ja1RYS0RRbXVmUG9DQUhaX2dEZmRZemJjTU5pTVdOTy1ITVplSDhReVc3N09VUEpnZktwY3ltRXY5UUxyQzhTbWFzSmZ6RU1I?oc=5",
-    "time": "Mon, 08 Dec 2025 22:01:43 GMT"
-  },
-  {
-    "isp": "Unknown Provider",
     "loc": "Haughton",
     "coords": [
       53.1030117,
@@ -31,17 +31,6 @@
     "title": "Planned Water Service Interruption in Haughton - Bossier Press-Tribune",
     "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBvSG9sRzJRXzNvTVFOaTNEZEdwbUNHZlpqQkU5ZldVdXlyWjdJWG1SWGkwbDhkY0dWbkJQWmhkbFpRd05OcGZ6bW1DcG1PT2pVYXk2cTdVeEU0LVVwYmx4aG0weUU3Y1Y3cUVFX3J5azNfMlduRzc0SGlPVUQ?oc=5",
     "time": "Mon, 08 Dec 2025 22:43:33 GMT"
-  },
-  {
-    "isp": "Verizon",
-    "loc": "Cape Coral Fort",
-    "coords": [
-      26.5983146,
-      -81.8498092
-    ],
-    "title": "A Verizon outage due to a fiber issue impacted customers in Cape Coral, Fort Myers - Gulf Coast News and Weather",
-    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWVRycFQyRVpjU3Vaa0lCVkdxSVo3QnpWc2NFVGExSGtNT3FlOGc1Njl6bDQtaGNyNUZGYkhPc3NGR284dE1jRXNHRkJmVzYzaDBjdUV4SDdjWGdlcnk1Q0R1M2lNdkFNY1IwVk1yYzlSa3lYSEMtZk9vTHJDbHEwYzVxRnIwa2hXVGlTSVhBOGVvcUFBN2FIWHdiS1RHSHN4b3VUOUFoUUJXQXFzTjYzR1p5YXdwOHVi?oc=5",
-    "time": "Mon, 08 Dec 2025 12:39:00 GMT"
   },
   {
     "isp": "Unknown Provider",
