@@ -1,5 +1,16 @@
 [
   {
+    "isp": "Unknown Provider",
+    "loc": "Genesee County",
+    "coords": [
+      43.0220032,
+      -83.7274305
+    ],
+    "title": "Water outage spurs service changes, new temporary meal site at Genesee County OFA - TheDailyNewsOnline.com",
+    "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNVHYyNC0yQ2dNdEJJRkd4aXFLdjZLU05xQl9vTlcxTFdNNXluNnI5a01tcW11cmJyU1BOVUZmNV82TE9ULXdPTlNMLTVtRTFPMnVlOEVUNG5rWmNZV1ZyVDBSMXRKeFFYcl80WUhiZlpNaGs4bjJaeVk3aGJrdzhlbHV5eGpTbklUVjIxY2F0YjFKNVYxdHg4RndLUkZCUHIwTHJZLUJOaWtOZDlaM1hZa1ZLZjAzZ1dLb2ZUdEtKVXN1Vmg0WU41RFg2THFvQmRkYU5HdmwyazNWSDRDZEJHWTlGX3lKS0FQUHhGdXVEUE9zaTdsYU9rUXJudzJXWkU?oc=5",
+    "time": "Wed, 10 Dec 2025 15:27:00 GMT"
+  },
+  {
     "isp": "AWS",
     "loc": "October",
     "coords": [
@@ -11,15 +22,15 @@
     "time": "Wed, 10 Dec 2025 13:26:33 GMT"
   },
   {
-    "isp": "Unknown Provider",
-    "loc": "La Scie",
+    "isp": "AT&T",
+    "loc": "Illinois",
     "coords": [
-      49.7934485,
-      1.1090832
+      40.0796606,
+      -89.4337288
     ],
-    "title": "Damage to Bell Aliant tower affecting cellular service in La Scie area - 100.1 BayFM",
-    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNdTRiLW5fZjFGajl6UklWRkZ6dW10bW9ySTEtX1o4RXJhUVJnWUFmVEhVQWF0U2VJX0IzRlpZVHE2SEF4NXB0Z0pxZ1V0YXI5WGxVZnlUQ08zVFlEMVMxRzUxdldYclpPaHFvRkdYQzIyc3NVUDhKbW5DRndtUmVLWmRvSVBFcVl6V2pLNUIzQ1F6TmJiZXF0MGk3Y2t1cjFZV1RZSA?oc=5",
-    "time": "Wed, 10 Dec 2025 01:53:11 GMT"
+    "title": "AT&T to phase out copper-based landlines in Illinois - WGAU Radio | Athens, GA",
+    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNUXEzcnczc2hiUTdqWlJnQ2dIS3NFdVEzVEpMN2U0NkxGTDBwYm8teDEtc0VrSVNXM0FYVjV2d2c2eWsxMFQ0Uy1MMFZGOVhZZTRYY2ltcWhVVk1SRWVQVGlBbkcybkdIbThfZ1MyV2hKNEs1NjBURWIyLWt2QU5Rd3gzZmN1QlVrNF9jNkN2eWJtT19ZXzNMMnpvN0ppVzBzeWU0UGdsb0dNZEtaSG1KVXRwMNIBxwFBVV95cUxORzdkOFNvT1lxVThER2NrVWpQalBFVS13SGkzVEc2UXhiVkEtcFJ3NjRMcGdocXV3Z0ZINUNENUNXa1UwTmdkMVU0cnRnSmRwb1lfY3BVVExUdmFFeEs3el9UQkt6ei1FUDcwdHlHd3pEZjFncWpwWHQ5VmdUTHdoLXdIbnNKYWlpY0pJOFBOZ0xEd09nZ2lLZ2hELUd6bUlxM0xnQVZZQ3J3Y3JaWTFPNlpKVzNRaDhJTEpvS080dE9CY1g0Umtz?oc=5",
+    "time": "Tue, 09 Dec 2025 16:45:08 GMT"
   },
   {
     "isp": "Unknown Provider",
@@ -53,6 +64,17 @@
     "title": "| Polyester yarn, fibre prices fall in India; viscose shows mixed trend - Fibre2Fashion",
     "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOR2tLNmpucjViYTRnOG9IMVRhcG5GZlI4OHQtMFEySDNXMHdGSm5YWFpzWUE1U3ViRjJXRGlNSjNxcTFWVFpOZWhoaHpoVVVIeFgtVXlTLWliSnhPSW43SzZaUVZsQ3JSZlVMZjNuQk43ZzZkUF9KX0RIQV9jQVJKY3ZOZE83cHlQV1kwUllWeGRjTFE2b21KRnNqZ3RuNGVwM2ZpOVhhLU1HX3UyR3o3UThtYXFyajdNbnVsaHNQeGc3cUtBbGJ0NVRCTVpVM2NWZWNWTA?oc=5",
     "time": "Wed, 10 Dec 2025 12:32:30 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
+    "loc": "Pocatello",
+    "coords": [
+      42.8620287,
+      -112.450627
+    ],
+    "title": "Second work-zone truck hit in 24 hours as semi slams into traffic control vehicle on I-15 near Pocatello - East Idaho News",
+    "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOOXBybnpuWmxXUjNndTlfYXk3V0lwSjVzdm80NS16b1daVzRPYVZXUUZXYVRHamlhalZ5a0lSNmhxX3plNmVSdDc1RTB0bHNGZGdNbnNGS3NEVWIyVzNSdTFFYXk4a1RiM2hUNVRQbzdYU2NDbko3X2ZRbk53UlpiZ25KSGs2d1l5ak5Wa0dadkZrZ1VOVFlBY2ZxeXkySl9ERGUzYUplbEFtaWlpb2Jqa21QNmRLZ1ZFN2ktVExaZzRhcTBnWHY4ZzJna1BzVWpDSmxHRVFqLTJBUXM?oc=5",
+    "time": "Wed, 10 Dec 2025 15:28:00 GMT"
   },
   {
     "isp": "Unknown Provider",
