@@ -65,7 +65,7 @@
                 <div class="access-btn">OPEN GATEWAY >></div>
             </a>
 
-            <a href="https://airplanes.beechem.site" target="_blank" class="card">
+            <a href="https://ops.beechem.site/flight-map" target="_blank" class="card">
                 <h3>AIRPLANES.LIVE</h3>
                 <div class="status-line">STATUS: LINKED</div>
                 <p>Low-latency radar view from Evan-OptiPlex-7040.</p>
