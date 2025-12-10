@@ -34,6 +34,17 @@
   },
   {
     "isp": "Unknown Provider",
+    "loc": "La Scie",
+    "coords": [
+      49.7934485,
+      1.1090832
+    ],
+    "title": "Damage to Bell Aliant tower affecting cellular service in La Scie area - 100.1 BayFM",
+    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNdTRiLW5fZjFGajl6UklWRkZ6dW10bW9ySTEtX1o4RXJhUVJnWUFmVEhVQWF0U2VJX0IzRlpZVHE2SEF4NXB0Z0pxZ1V0YXI5WGxVZnlUQ08zVFlEMVMxRzUxdldYclpPaHFvRkdYQzIyc3NVUDhKbW5DRndtUmVLWmRvSVBFcVl6V2pLNUIzQ1F6TmJiZXF0MGk3Y2t1cjFZV1RZSA?oc=5",
+    "time": "Wed, 10 Dec 2025 01:53:11 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
     "loc": "Europe",
     "coords": [
       51.0,
