@@ -118,51 +118,5 @@
       setInterval(updateOcto, 5000);
       updateOcto();
     </script>
-
-    <script>
-      const BEECH_OCTO_API_KEY = "3BGY3QBeERGnNJwQjQNiwYgMkU4xcLtJzIXGL8smnuo";
-      const BEECH_OCTO_URL = "https://octoprint.beechem.site/api/job";
-
-      async function beechemUpdateOctoprint() {
-        try {
-          const r = await fetch(BEECH_OCTO_URL, {
-            headers: { "X-Api-Key": BEECH_OCTO_API_KEY }
-          });
-          if (!r.ok) throw new Error("HTTP " + r.status);
-          const d = await r.json();
-
-          const state = d.state || "UNKNOWN";
-          const progress = (d.progress && d.progress.completion) || 0;
-          const job = d.job || {};
-          const file = job.file || {};
-          const name = file.name || "No File Loaded";
-
-          const sEl = document.getElementById("octo-status");
-          const fEl = document.getElementById("octo-file");
-
-          if (sEl) {
-            let txt = "STATUS: " + state.toUpperCase();
-            if (state.toLowerCase() === "printing") {
-              txt += " (" + Math.round(progress) + "%)";
-            }
-            sEl.textContent = txt;
-          }
-
-          if (fEl) {
-            fEl.textContent = "File: " + name;
-          }
-        } catch (e) {
-          console.error(e);
-          const sEl = document.getElementById("octo-status");
-          if (sEl) sEl.textContent = "STATUS: DISCONNECTED (API)";
-        }
-      }
-
-      // Kick off immediately and then every 5 seconds
-      document.addEventListener("DOMContentLoaded", function () {
-        beechemUpdateOctoprint();
-        setInterval(beechemUpdateOctoprint, 5000);
-      });
-    </script>
 </body>
 </html>
