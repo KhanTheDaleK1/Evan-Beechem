@@ -57,21 +57,7 @@
                 <p>Unfiltered global tracking network.</p>
                 <div class="access-btn">CHECK SYNC >></div>
             </a>
-        
-            <a href="https://ignition.beechem.site" target="_blank" class="card">
-                <h3>IGNITION GATEWAY</h3>
-                <div class="status-line">STATUS: ONLINE</div>
-                <p>SCADA / OT gateway and Ignition HMIs.</p>
-                <div class="access-btn">OPEN GATEWAY >></div>
-            </a>
-
-            <a href="https://ops.beechem.site/flight-map" target="_blank" class="card">
-                <h3>AIRPLANES.LIVE</h3>
-                <div class="status-line">STATUS: LINKED</div>
-                <p>Low-latency radar view from Evan-OptiPlex-7040.</p>
-                <div class="access-btn">VIEW RADAR >></div>
-            </a>
-</div>
+        </div>
     </div>
     <script>
         var c = document.getElementById("matrix");
