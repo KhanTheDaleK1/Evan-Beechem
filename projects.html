@@ -32,8 +32,8 @@
             
             <a href="https://octoprint.beechem.site" target="_blank" class="card" style="border-color: #00ff00;">
                 <h3>OCTOPRINT</h3>
-                <div class="status-line">STATUS: <span class="blink">ONLINE</span></div>
-                <p>Remote 3D printing management server (Ender 3).</p>
+                <div class="status-line" id="octo-status">STATUS: CONNECTING...</div>
+                <p id="octo-file">File: ---</p>
                 <div class="access-btn">ACCESS >></div>
             </a>
 
@@ -84,42 +84,7 @@
             }
         }
         setInterval(draw, 33);
-    </script>
-
-    <script>
-      const OCTO_API_KEY = "3BGY3QBeERGnNJwQjQNiwYgMkU4xcLtJzIXGL8smnuo";
-      const OCTO_URL = "https://octoprint.beechem.site/api/job";
-
-      async function updateOcto() {
-        try {
-          const r = await fetch(OCTO_URL, {
-            headers: { "X-Api-Key": OCTO_API_KEY }
-          });
-          const d = await r.json();
-          const state = d.state || "UNKNOWN";
-          const progress = d.progress && d.progress.completion || 0;
-          const job = d.job || {};
-          const file = job.file || {};
-          const name = file.name || "No File Loaded";
-
-          const sEl = document.getElementById("octo-state");
-          const fEl = document.getElementById("octo-file");
-          const bEl = document.getElementById("octo-bar");
-
-          if (sEl) sEl.textContent = "STATUS: " + state;
-          if (fEl) fEl.textContent = "FILE: " + name;
-          if (bEl) bEl.style.width = Math.round(progress) + "%";
-        } catch (e) {
-          const sEl = document.getElementById("octo-state");
-          if (sEl) sEl.textContent = "STATUS: DISCONNECTED (API)";
-        }
-      }
-
-      setInterval(updateOcto, 5000);
-      updateOcto();
-    </script>
-
-    <script>
+    </script><script>
       const BEECH_OCTO_API_KEY = "3BGY3QBeERGnNJwQjQNiwYgMkU4xcLtJzIXGL8smnuo";
       const BEECH_OCTO_URL = "https://octoprint.beechem.site/api/job";
 
