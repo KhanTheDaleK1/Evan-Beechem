@@ -518,3 +518,9 @@ fatal: could not read Username for 'https://github.com': No such device or addre
 [main 4ae2aed] Auto-Update Intel
  2 files changed, 36 insertions(+), 25 deletions(-)
 fatal: could not read Username for 'https://github.com': No such device or address
+[main f25f1b2] Auto-Update Intel
+ 2 files changed, 42 insertions(+), 53 deletions(-)
+fatal: could not read Username for 'https://github.com': No such device or address
+[main 6501ba0] Auto-Update Intel
+ 2 files changed, 64 insertions(+), 42 deletions(-)
+fatal: could not read Username for 'https://github.com': No such device or address

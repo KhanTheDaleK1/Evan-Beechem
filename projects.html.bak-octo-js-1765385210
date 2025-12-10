@@ -73,55 +73,72 @@
             </a>
 </div>
     </div>
-
     <script>
-      // Minimal, robust OctoPrint status updater for beechem.site
+        var c = document.getElementById("matrix");
+        var ctx = c.getContext("2d");
+        function resize() { c.height = window.innerHeight; c.width = window.innerWidth; }
+        window.onresize = resize;
+        resize();
+        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        chars = chars.split("");
+        var fontSize = 14;
+        var columns = c.width / fontSize;
+        var drops = [];
+        for(var x = 0; x < columns; x++) drops[x] = 1;
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, c.width, c.height);
+            ctx.fillStyle = "#0F0";
+            ctx.font = fontSize + "px monospace";
+            for(var i = 0; i < drops.length; i++) {
+                var text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if(drops[i] * fontSize > c.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 33);
+    </script><script>
+      const BEECH_OCTO_API_KEY = "3BGY3QBeERGnNJwQjQNiwYgMkU4xcLtJzIXGL8smnuo";
       const BEECH_OCTO_URL = "/octoprint-api/job";
 
       async function beechemUpdateOctoprint() {
         try {
-          const resp = await fetch(BEECH_OCTO_URL, { cache: "no-store" });
-          if (!resp.ok) {
-            console.error("[OctoPrint] HTTP error:", resp.status);
-            throw new Error("HTTP " + resp.status);
-          }
+          const r = await fetch(BEECH_OCTO_URL, {
+            headers: { "X-Api-Key": BEECH_OCTO_API_KEY }
+          });
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          const d = await r.json();
 
-          const data = await resp.json();
-          const state = data.state || "UNKNOWN";
-          const progress = (data.progress && data.progress.completion) || 0;
-          const job = data.job || {};
+          const state = d.state || "UNKNOWN";
+          const progress = (d.progress && d.progress.completion) || 0;
+          const job = d.job || {};
           const file = job.file || {};
-          const name = file.display || file.name || "No File Loaded";
+          const name = file.name || "No File Loaded";
 
-          const statusEl = document.getElementById("octo-status");
-          const fileEl = document.getElementById("octo-file");
+          const sEl = document.getElementById("octo-status");
+          const fEl = document.getElementById("octo-file");
 
-          if (statusEl) {
-            let txt = "STATUS: " + String(state).toUpperCase();
-            if (String(state).toLowerCase() === "printing") {
+          if (sEl) {
+            let txt = "STATUS: " + state.toUpperCase();
+            if (state.toLowerCase() === "printing") {
               txt += " (" + Math.round(progress) + "%)";
             }
-            statusEl.textContent = txt;
+            sEl.textContent = txt;
           }
 
-          if (fileEl) {
-            fileEl.textContent = "File: " + name;
+          if (fEl) {
+            fEl.textContent = "File: " + name;
           }
         } catch (e) {
-          console.error("[OctoPrint] API error:", e);
-          const statusEl = document.getElementById("octo-status");
-          if (statusEl) {
-            statusEl.textContent = "STATUS: DISCONNECTED (API)";
-          }
-          const fileEl = document.getElementById("octo-file");
-          if (fileEl) {
-            fileEl.textContent = "File: ---";
-          }
+          console.error(e);
+          const sEl = document.getElementById("octo-status");
+          if (sEl) sEl.textContent = "STATUS: DISCONNECTED (API)";
         }
       }
 
+      // Kick off immediately and then every 5 seconds
       document.addEventListener("DOMContentLoaded", function () {
-        // Kick once, then every 5s
         beechemUpdateOctoprint();
         setInterval(beechemUpdateOctoprint, 5000);
       });
