@@ -56,6 +56,17 @@
   },
   {
     "isp": "Unknown Provider",
+    "loc": "Wilson",
+    "coords": [
+      29.1589961,
+      -98.1251465
+    ],
+    "title": "Power out along Westside Road near Wilson\u2019s Landing - Castanet",
+    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPcnppYzJma004MGZHaXhBLWpvTVJQRjBrN2JocG1oYlE4MXNIQzQ1ZUVnNndpdGJQak5mU1dSTFRqUUdsa1NleUZzUUZZbVQySTZSTGJfc0EwcW9KVEUtSUFybXc1S2ItUmpBY1M4MnAxYWFjRlNJajB1QnM1OWtQbVZSYWY5Ty13NUxLX25ZcHBndGNBczRkRVpmUEJLZmRPRGNF?oc=5",
+    "time": "Tue, 09 Dec 2025 17:19:00 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
     "loc": "India",
     "coords": [
       22.3511148,
