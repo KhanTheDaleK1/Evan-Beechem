@@ -67,6 +67,28 @@
   },
   {
     "isp": "Unknown Provider",
+    "loc": "West Roscommon",
+    "coords": [
+      53.4266318,
+      -7.967575
+    ],
+    "title": "Major power outage in West Roscommon - roscommonherald.ie",
+    "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPRndBYVlReW1SWUxEcC15MlhLNjB2VWsyMW9fVUgtU1ZtRjlFRHRDU1FYZXpOYTU1MC1TQUdLUUpidlZ4bHRaTzFZZ0pvTkV2N2NrT0loa2xCdW9KVjV0SnJYMXZQY1h2SXFiRFJaV3JyMlNHM3g1bFBxS3oxYUx4Ym1NOTRGVU9FN0N2aGlibHczUQ?oc=5",
+    "time": "Tue, 09 Dec 2025 18:49:09 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
+    "loc": "India",
+    "coords": [
+      22.3511148,
+      78.6677428
+    ],
+    "title": "| Polyester yarn, fibre prices fall in India; viscose shows mixed trend - Fibre2Fashion",
+    "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOR2tLNmpucjViYTRnOG9IMVRhcG5GZlI4OHQtMFEySDNXMHdGSm5YWFpzWUE1U3ViRjJXRGlNSjNxcTFWVFpOZWhoaHpoVVVIeFgtVXlTLWliSnhPSW43SzZaUVZsQ3JSZlVMZjNuQk43ZzZkUF9KX0RIQV9jQVJKY3ZOZE83cHlQV1kwUllWeGRjTFE2b21KRnNqZ3RuNGVwM2ZpOVhhLU1HX3UyR3o3UThtYXFyajdNbnVsaHNQeGc3cUtBbGJ0NVRCTVpVM2NWZWNWTA?oc=5",
+    "time": "Wed, 10 Dec 2025 12:32:30 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
     "loc": "Pocatello",
     "coords": [
       42.8620287,
@@ -86,16 +108,5 @@
     "title": "Facebook, WhatsApp, Instagram to Slow Down in Pakistan - ProPakistani",
     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNSzFBdGFoYkRpcUN0MklrUnVZaGhFNHIwVUJ5Nk53VEhlN040OW9TdTdDX19GR1ByVGRfTU5kai15cEdUUXR6STFPM1hzM1JSeE1RZ3lSYlZfdW1vNU5WRlpyaFVnRnFhek1qRWZVZVRmZUtjbnMwek5XTVFOMDU5emlILW1NWmVVSzc3aDdueG1Ndw?oc=5",
     "time": "Wed, 10 Dec 2025 09:16:36 GMT"
-  },
-  {
-    "isp": "Unknown Provider",
-    "loc": "Milepost",
-    "coords": [
-      52.2757478,
-      -7.0813547
-    ],
-    "title": "Illinois - Traffic Alert: I-74 Westbound Down to One Lane at Milepost 167; Expect Delays Today - Country Herald",
-    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQUmJPS3NTa1hTdkRibmEwWmNkOUp1RTNoMXVRU2VuTW1Lc0M2SVVhNmNuRjJUTWRIQ2djZlZmdzJSVUR5V29Sd0hiRnNuRW8wTTVscEU1Z2V6clVVQ2xONy1HejdVdGRvaGtiakcxSDF6OHJKNFlCNHZqMUhCVU80RXVScTgxNm1PeGJkOXJ6bGlDSVZSdmU4NVFpUmFEUDZVMUttQklCbG1HWkwxR05HX2pkUnhaVEQ0TUdQX2xtdw?oc=5",
-    "time": "Tue, 09 Dec 2025 17:48:21 GMT"
   }
 ]
