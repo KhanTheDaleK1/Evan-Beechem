@@ -18,8 +18,8 @@
             color: #00ff00; 
             font-family: 'Courier New', monospace; 
             overflow-x: hidden; 
-            overscroll-behavior-y: none; /* Disables pull-to-refresh on mobile */
-            -webkit-tap-highlight-color: transparent; /* Removes blue tap box on Android/iOS */
+            overscroll-behavior-y: none;
+            -webkit-tap-highlight-color: transparent;
         }
         canvas { display: block; position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.8; }
         .content { 
@@ -30,11 +30,30 @@
             height: 100vh; 
             overflow-y: auto; 
             box-sizing: border-box; 
-            padding-bottom: env(safe-area-inset-bottom); /* iOS Safe Area */
+            padding-bottom: env(safe-area-inset-bottom);
         }
-        h1 { letter-spacing: 5px; text-shadow: 0 0 10px #00ff00; margin-bottom: 10px; font-size: 1.8rem; }
-        .subtitle { opacity: 0.7; border-bottom: 1px solid #004400; display: inline-block; padding-bottom: 5px; margin-bottom: 40px; }
         
+        /* Header Container */
+        .header-container {
+            margin-bottom: 40px;
+        }
+
+        h1 { letter-spacing: 5px; text-shadow: 0 0 10px #00ff00; margin: 0 0 10px 0; font-size: 1.8rem; }
+        .subtitle { opacity: 0.7; border-bottom: 1px solid #004400; display: inline-block; padding-bottom: 5px; }
+        
+        /* Back Button - Default hidden on desktop unless needed, but requested for header */
+        .back-btn {
+            display: none; /* Hidden by default on desktop, or style differently */
+            color: #00ff00;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #00ff00;
+            padding: 5px 10px;
+            margin-bottom: 15px;
+            background: rgba(0, 20, 0, 0.8);
+            text-transform: uppercase;
+        }
+
         /* Card Grid - Desktop Default */
         .card-grid { 
             display: grid; 
@@ -61,7 +80,7 @@
             box-sizing: border-box;
             overflow: hidden;
             word-wrap: break-word;
-            user-select: none; /* App feel: prevent text selection */
+            user-select: none;
             -webkit-user-select: none;
             cursor: pointer;
         }
@@ -93,73 +112,76 @@
             align-self: flex-end; 
             text-transform: uppercase; 
             text-align: center;
-            border-radius: 2px; /* Slight rounding */
+            border-radius: 2px; 
         }
     
         /* OctoPrint live card extras */
         .progress-container { width:100%; background-color:#004400; height:10px; margin-top:10px; }
         .progress-bar { height:100%; width:0%; background-color:#00ff00; transition:width 0.4s; }
 
-        /* Mobile Responsive Styles - Horizontal Scroll */
+        /* Mobile Responsive Styles - Vertical Scroll with Sticky Header */
         @media (max-width: 800px) {
-            body {
-                padding: 0;
-            }
-            .content {
-                padding: 30px 0 10px 0; /* More top padding for status bar */
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-            }
+            body { padding: 0; }
             
-            h1 { font-size: 1.5rem; margin-top: 20px; }
+            .content {
+                padding: 0;
+                height: 100vh;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Sticky Header */
+            .header-container {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                margin-bottom: 20px;
+                padding: 15px 0 15px 0; /* Add padding inside header */
+                border-bottom: 1px solid #004400;
+            }
+
+            h1 { font-size: 1.4rem; margin-top: 5px; margin-bottom: 5px; }
+            .subtitle { font-size: 0.8rem; margin-bottom: 0; }
+            
+            .back-btn {
+                display: inline-block;
+                font-size: 0.8rem;
+                padding: 4px 12px;
+                margin-bottom: 10px;
+            }
 
             .card-grid {
-                display: flex;
-                flex-direction: row;
-                overflow-x: auto;
-                overflow-y: hidden;
-                gap: 16px;
-                padding: 10px 20px 30px 20px; /* Bottom padding for scroll clearance */
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                margin: auto 0; /* Center vertically if space permits */
-                width: 100%;
-                justify-content: flex-start;
-                
-                /* Hide scrollbar for cleaner look */
-                scrollbar-width: none; /* Firefox */
-                -ms-overflow-style: none;  /* IE 10+ */
-            }
-
-            .card-grid::-webkit-scrollbar {
-                display: none; /* Chrome/Safari/Webkit */
+                display: block; /* Standard block layout for vertical scroll */
+                padding: 0 16px 40px 16px; /* Bottom padding for scroll clearance */
+                margin: 0;
+                width: auto;
             }
 
             .card {
-                flex: 0 0 85%;
-                max-width: 85%;
-                min-width: 280px;
-                scroll-snap-align: center;
-                margin-bottom: 0;
-                height: 60vh; /* Taller cards on mobile */
-                max-height: 500px;
-                background: rgba(0, 15, 0, 0.9); /* Slightly more opaque on mobile */
+                margin-bottom: 20px; /* Spacing between cards */
+                min-height: auto; /* Let content dictate height */
+                height: auto;
+                background: rgba(0, 15, 0, 0.9);
             }
             
-            .card h3 { font-size: 1.4rem; padding-bottom: 10px; margin-bottom: 15px; }
-            .card p { font-size: 1rem; }
-            .status-line { font-size: 0.9rem; margin-bottom: 15px; }
-            .access-btn { width: 100%; padding: 12px 0; font-size: 1.1rem; }
+            .card h3 { font-size: 1.3rem; }
+            .card p { font-size: 0.95rem; }
+            .access-btn { width: 100%; padding: 12px 0; font-size: 1rem; margin-top: 15px; }
         }
     </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
     <div class="content">
-        <h1>// GLOBAL UPLINKS //</h1>
-        <div class="subtitle">SECURE GATEWAY INTERFACE (CORRECTED)</div>
+        <div class="header-container">
+            <a href="https://beechem.site" class="back-btn">&lt; BACK TO HOME</a>
+            <h1>// GLOBAL UPLINKS //</h1>
+            <div class="subtitle">SECURE GATEWAY INTERFACE (CORRECTED)</div>
+        </div>
+        
         <div class="card-grid">
             
             <a href="https://octoprint.beechem.site" target="_blank" class="card" style="border-color: #00ff00;">
