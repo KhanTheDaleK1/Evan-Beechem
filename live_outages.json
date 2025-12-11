@@ -1,17 +1,6 @@
 [
   {
     "isp": "Unknown Provider",
-    "loc": "Dauphin",
-    "coords": [
-      40.398036,
-      -76.8115168
-    ],
-    "title": "Impaired Driver Charged After Damaging Spree Knocks Out Internet in Dauphin - ChrisD.ca",
-    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPNHI5ZTdvTDJ6S1ZKekxOaUNKUXdna0Z5NTBkLWdULW5YVUV2QzNFcUVkZG5vZm0zMEREbHIweGVKYTk5R0lSMmo4ajF5UkJzQmhWVlBzcncyV0hfTVEtMGVPdnp4QXp1eFJmcFkwMFRGWE5ydHlRTElLQnFPdUxzM3JtRXJwM05mN1FvNU9FZHFmdXo1VWg5Q0R3?oc=5",
-    "time": "Wed, 10 Dec 2025 17:33:12 GMT"
-  },
-  {
-    "isp": "Unknown Provider",
     "loc": "Genesee County",
     "coords": [
       43.0220032,
@@ -20,6 +9,17 @@
     "title": "Water outage spurs service changes, new temporary meal site at Genesee County OFA - TheDailyNewsOnline.com",
     "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNVHYyNC0yQ2dNdEJJRkd4aXFLdjZLU05xQl9vTlcxTFdNNXluNnI5a01tcW11cmJyU1BOVUZmNV82TE9ULXdPTlNMLTVtRTFPMnVlOEVUNG5rWmNZV1ZyVDBSMXRKeFFYcl80WUhiZlpNaGs4bjJaeVk3aGJrdzhlbHV5eGpTbklUVjIxY2F0YjFKNVYxdHg4RndLUkZCUHIwTHJZLUJOaWtOZDlaM1hZa1ZLZjAzZ1dLb2ZUdEtKVXN1Vmg0WU41RFg2THFvQmRkYU5HdmwyazNWSDRDZEJHWTlGX3lKS0FQUHhGdXVEUE9zaTdsYU9rUXJudzJXWkU?oc=5",
     "time": "Wed, 10 Dec 2025 15:27:00 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
+    "loc": "Dauphin",
+    "coords": [
+      40.398036,
+      -76.8115168
+    ],
+    "title": "Impaired Driver Charged After Damaging Spree Knocks Out Internet in Dauphin - ChrisD.ca",
+    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPNHI5ZTdvTDJ6S1ZKekxOaUNKUXdna0Z5NTBkLWdULW5YVUV2QzNFcUVkZG5vZm0zMEREbHIweGVKYTk5R0lSMmo4ajF5UkJzQmhWVlBzcncyV0hfTVEtMGVPdnp4QXp1eFJmcFkwMFRGWE5ydHlRTElLQnFPdUxzM3JtRXJwM05mN1FvNU9FZHFmdXo1VWg5Q0R3?oc=5",
+    "time": "Wed, 10 Dec 2025 17:33:12 GMT"
   },
   {
     "isp": "AWS",
@@ -42,17 +42,6 @@
     "title": "Damage to Bell Aliant tower affecting cellular service in La Scie area - 100.1 BayFM",
     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNdTRiLW5fZjFGajl6UklWRkZ6dW10bW9ySTEtX1o4RXJhUVJnWUFmVEhVQWF0U2VJX0IzRlpZVHE2SEF4NXB0Z0pxZ1V0YXI5WGxVZnlUQ08zVFlEMVMxRzUxdldYclpPaHFvRkdYQzIyc3NVUDhKbW5DRndtUmVLWmRvSVBFcVl6V2pLNUIzQ1F6TmJiZXF0MGk3Y2t1cjFZV1RZSA?oc=5",
     "time": "Wed, 10 Dec 2025 01:53:11 GMT"
-  },
-  {
-    "isp": "Unknown Provider",
-    "loc": "Europe",
-    "coords": [
-      51.0,
-      10.0
-    ],
-    "title": "Microsoft Examines Copilot Outage in Europe \u2014 Businesses Face Sudden Workflow Chaos - inkl",
-    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNVHZlSUdRY1B3cGdtUXZLRGpCYnlmdHlhcFUyTExJQmphSHp0bnc3UjB1ekNEQjJlbXQ3dngyUUNJRmsxZjIyaFluZEpxRVJIUlBxUTctUlRXTzhDSnA3bWt2Rm5BalNMNFZtNktpUVdLajhSRU9vMEZLSGxYVjl4RndBbGQwN1ZNMGJvOXBmbDNnWnFibkdoLTVRYV9Kb3lPT2IzZjlSd1BxWHc?oc=5",
-    "time": "Wed, 10 Dec 2025 05:01:30 GMT"
   },
   {
     "isp": "Unknown Provider",
