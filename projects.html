@@ -246,7 +246,6 @@
                 <div class="access-btn">OPEN GATEWAY >></div>
             </a>
 
-            <!-- FLIGHT MAP CARD: REFACTORED FOR FIXES -->
             <div class="card" style="padding-bottom: 60px; position: relative;">
                 <h3>FLIGHT MAP</h3>
                 <div class="map-iframe-container">
@@ -261,7 +260,6 @@
                     <div class="status-line">STATUS: LINKED</div>
                     <p>Low-latency radar view from Evan-OptiPlex-7040.</p>
                 </div>
-                <!-- Absolute positioning for button to ensure it stays bottom-right -->
                 <a href="https://ops.beechem.site/flight-map/" target="_blank" class="access-btn" style="position: absolute; bottom: 20px; right: 20px; width: auto;">VIEW MAP >></a>
             </div>
 </div>
@@ -274,7 +272,7 @@
       const BEECH_OCTO_WEBCAM_URL = WORKER_BASE + "/octoprint-api/webcam";
       const BEECH_OCTO_SETTINGS_URL = WORKER_BASE + "/octoprint-api/settings";
       const FLIGHT_DATA_URL = WORKER_BASE + "/octoprint-api/flight-data";
-      const FLIGHTAWARE_URL = WORKER_BASE + "/octoprint-api/flightaware/kaex";
+      const FLIGHTAWARE_URL = WORKER_BASE + "/flightaware-api/kaex";
 
       let webcamInitialized = false;
 
@@ -419,8 +417,9 @@
         updateFlightStats();
         setInterval(updateFlightStats, 5000);
 
-        // updateFlightAwareStats();
-        // setInterval(updateFlightAwareStats, 30000); // 30s interval for external API to save quota
+        // Update FlightAware stats (uncommented now that worker is unified)
+        updateFlightAwareStats();
+        setInterval(updateFlightAwareStats, 30000); // 30s interval for external API to save quota
       });
     </script>
 </body>
