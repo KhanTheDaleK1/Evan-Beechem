@@ -120,6 +120,8 @@
             margin-bottom: 10px;
             border: 1px solid #004400;
             opacity: 0.9;
+            min-height: 150px; /* Placeholder height */
+            background: #001100;
         }
 
         /* Mobile Responsive Styles - Vertical Scroll with Sticky Header */
@@ -232,10 +234,11 @@
     </div>
 
     <script>
-      // Proxy Endpoints
-      const BEECH_OCTO_JOB_URL = "/octoprint-api/job";
-      const BEECH_OCTO_SETTINGS_URL = "/octoprint-api/settings";
-      const BEECH_OCTO_WEBCAM_URL = "/octoprint-api/webcam";
+      // Using absolute URLs to avoid local dev issues
+      const WORKER_BASE = "https://octoprint-proxy.evan-t-beechem.workers.dev";
+      const BEECH_OCTO_JOB_URL = WORKER_BASE + "/octoprint-api/job";
+      const BEECH_OCTO_WEBCAM_URL = WORKER_BASE + "/octoprint-api/webcam";
+      const BEECH_OCTO_SETTINGS_URL = WORKER_BASE + "/octoprint-api/settings";
 
       let webcamInitialized = false;
 
@@ -277,7 +280,8 @@
                 const settingsResp = await fetch(BEECH_OCTO_SETTINGS_URL);
                 if (settingsResp.ok) {
                     const settingsData = await settingsResp.json();
-                    // We assume if settings load, webcam is reachable via proxy
+                    // Check if webcam is enabled in settings (optional validation)
+                    // Then set the stream
                     const img = document.getElementById("octo-webcam");
                     if (img) {
                         img.src = BEECH_OCTO_WEBCAM_URL;
