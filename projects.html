@@ -218,10 +218,13 @@
                 <div class="access-btn">ACCESS >></div>
             </a>
 
+            <!-- FLIGHTAWARE CARD: UPDATED FOR FLIGHT LIST -->
             <a href="https://flightaware.com/adsb/stats/user/KhanTheDalek" target="_blank" class="card">
                 <h3>FLIGHTAWARE</h3>
-                <div class="status-line">STATUS: REPORTING</div>
-                <p>Global Statistics & Feeder Rank.</p>
+                <div class="status-line">STATUS: INITIALIZING...</div>
+                <div id="flight-list" style="font-size: 0.7rem; text-align: left; margin: 10px 0; font-family: monospace; white-space: pre; overflow: hidden; opacity: 0.9;">
+> Awaiting Uplink...
+                </div>
                 <div class="access-btn">VIEW STATS >></div>
             </a>
 
@@ -246,6 +249,7 @@
                 <div class="access-btn">OPEN GATEWAY >></div>
             </a>
 
+            <!-- FLIGHT MAP CARD: REFACTORED FOR FIXES -->
             <div class="card" style="padding-bottom: 60px; position: relative;">
                 <h3>FLIGHT MAP</h3>
                 <div class="map-iframe-container">
@@ -260,6 +264,7 @@
                     <div class="status-line">STATUS: LINKED</div>
                     <p>Low-latency radar view from Evan-OptiPlex-7040.</p>
                 </div>
+                <!-- Absolute positioning for button to ensure it stays bottom-right -->
                 <a href="https://ops.beechem.site/flight-map/" target="_blank" class="access-btn" style="position: absolute; bottom: 20px; right: 20px; width: auto;">VIEW MAP >></a>
             </div>
 </div>
@@ -272,7 +277,7 @@
       const BEECH_OCTO_WEBCAM_URL = WORKER_BASE + "/octoprint-api/webcam";
       const BEECH_OCTO_SETTINGS_URL = WORKER_BASE + "/octoprint-api/settings";
       const FLIGHT_DATA_URL = WORKER_BASE + "/octoprint-api/flight-data";
-      const FLIGHTAWARE_URL = WORKER_BASE + "/flightaware-api/kaex";
+      const FLIGHTAWARE_URL = WORKER_BASE + "/octoprint-api/flightaware/kaex";
 
       let webcamInitialized = false;
 
@@ -388,24 +393,46 @@
             const resp = await fetch(FLIGHTAWARE_URL);
             if (!resp.ok) return;
             const data = await resp.json();
-            // AeroAPI /airports/KAEX/flights returns { arrivals: [], departures: [], ... }
-            const arrivals = data.arrivals ? data.arrivals.length : 0;
-            const departures = data.departures ? data.departures.length : 0;
-            const total = arrivals + departures;
             
+            const arrivals = data.arrivals || [];
+            const departures = data.departures || [];
+            const total = arrivals.length + departures.length;
+            
+            const traffic = [...arrivals, ...departures].slice(0, 5);
+            
+            let listContent = "";
+            if (traffic.length > 0) {
+                listContent = traffic.map(f => {
+                    const id = f.ident || "UNK";
+                    const type = f.aircraft_type || "---";
+                    const route = f.destination ? f.destination.code : (f.origin ? f.origin.code : "UNK");
+                    return `> ${id.padEnd(7)} [${type.padEnd(4)}] -> ${route}`;
+                }).join("\n");
+            } else {
+                listContent = "> No active traffic in range.";
+            }
+
             const cards = document.querySelectorAll('.card');
             for (const card of cards) {
                 const h3 = card.querySelector('h3');
                 if (h3 && h3.textContent.includes("FLIGHTAWARE")) {
+                    
                     const statusLine = card.querySelector('.status-line');
                     if (statusLine) {
                         statusLine.textContent = "NEARBY (KAEX): " + total + " FLIGHTS";
+                    }
+
+                    const listEl = card.querySelector('#flight-list');
+                    if (listEl) {
+                        listEl.textContent = listContent;
                     }
                     break;
                 }
             }
         } catch (e) {
             console.error("FlightAware stats fetch error:", e);
+            const listEl = document.getElementById('flight-list');
+            if(listEl) listEl.textContent = "> ERROR: COMM LINK SEVERED";
         }
       }
 
@@ -417,7 +444,6 @@
         updateFlightStats();
         setInterval(updateFlightStats, 5000);
 
-        // Update FlightAware stats (uncommented now that worker is unified)
         updateFlightAwareStats();
         setInterval(updateFlightAwareStats, 30000); // 30s interval for external API to save quota
       });
