@@ -273,6 +273,7 @@
       const BEECH_OCTO_JOB_URL = WORKER_BASE + "/octoprint-api/job";
       const BEECH_OCTO_WEBCAM_URL = WORKER_BASE + "/octoprint-api/webcam";
       const BEECH_OCTO_SETTINGS_URL = WORKER_BASE + "/octoprint-api/settings";
+      const FLIGHT_DATA_URL = "https://ops.beechem.site/tar1090/data/aircraft.json";
 
       let webcamInitialized = false;
 
@@ -359,10 +360,39 @@
           // console.log("[OctoPrint] Updating webcam src:", newSrc);
       }
 
+      async function updateFlightStats() {
+        try {
+            const resp = await fetch(FLIGHT_DATA_URL);
+            if (!resp.ok) return;
+            const data = await resp.json();
+            const count = data.aircraft ? data.aircraft.length : 0;
+            
+            // Find the FLIGHT MAP card status line. 
+            // Since we didn't give it an ID, we look for the card containing the h3 'FLIGHT MAP'
+            const cards = document.querySelectorAll('.card');
+            for (const card of cards) {
+                const h3 = card.querySelector('h3');
+                if (h3 && h3.textContent.includes("FLIGHT MAP")) {
+                    const statusLine = card.querySelector('.status-line');
+                    if (statusLine) {
+                        statusLine.textContent = "TRACKING: " + count + " AIRCRAFT";
+                        // statusLine.classList.add('blink'); // Optional effect
+                    }
+                    break; 
+                }
+            }
+        } catch (e) {
+            console.error("Flight stats fetch error:", e);
+        }
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         // Kick once, then every 5s
         beechemUpdateOctoprint();
         setInterval(beechemUpdateOctoprint, 5000);
+        
+        updateFlightStats();
+        setInterval(updateFlightStats, 5000);
       });
     </script>
 </body>
