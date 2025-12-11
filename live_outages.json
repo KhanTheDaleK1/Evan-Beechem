@@ -34,6 +34,17 @@
   },
   {
     "isp": "Unknown Provider",
+    "loc": "Europe",
+    "coords": [
+      51.0,
+      10.0
+    ],
+    "title": "Microsoft Examines Copilot Outage in Europe \u2014 Businesses Face Sudden Workflow Chaos - inkl",
+    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNVHZlSUdRY1B3cGdtUXZLRGpCYnlmdHlhcFUyTExJQmphSHp0bnc3UjB1ekNEQjJlbXQ3dngyUUNJRmsxZjIyaFluZEpxRVJIUlBxUTctUlRXTzhDSnA3bWt2Rm5BalNMNFZtNktpUVdLajhSRU9vMEZLSGxYVjl4RndBbGQwN1ZNMGJvOXBmbDNnWnFibkdoLTVRYV9Kb3lPT2IzZjlSd1BxWHc?oc=5",
+    "time": "Wed, 10 Dec 2025 05:01:30 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
     "loc": "Delhi Mumbai",
     "coords": [
       19.1356062,
