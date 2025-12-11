@@ -1,5 +1,78 @@
 // worker_config/octoprint_proxy_worker.js
-// Proxy for OctoPrint job status, settings, webcam, and flight data with CORS for beechem.site.
+// Proxy for OctoPrint and FlightAware with CORS for beechem.site.
+
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "https://beechem.site",
+      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, X-Api-Key",
+      "Vary": "Origin"
+    };
+
+    if (request.method === "OPTIONS") {
+      return new Response(null, { headers: corsHeaders });
+    }
+
+    let targetUrl = "";
+    const baseOcto = "https://octoprint.beechem.site";
+    
+    // Default Header (for OctoPrint)
+    let headers = {
+        "X-Api-Key": env.OCTO_API_KEY,
+        "User-Agent": "Beechem-Octoprint-Worker"
+    };
+
+    // 1. Job Endpoint
+    if (url.pathname === "/octoprint-api/job") {
+      targetUrl = baseOcto + "/api/job";
+    } 
+    // 2. Settings Endpoint
+    else if (url.pathname === "/octoprint-api/settings") {
+      targetUrl = baseOcto + "/api/settings";
+    }
+    // 3. Webcam Proxy
+    else if (url.pathname === "/octoprint-api/webcam") {
+      const queryString = url.search || "?action=stream";
+      targetUrl = baseOcto + "/webcam/" + queryString;
+    }
+    // 4. Flight Data Proxy (Local)
+    else if (url.pathname === "/octoprint-api/flight-data") {
+        targetUrl = "https://ops.beechem.site/tar1090/data/aircraft.json";
+    }
+    // 5. FlightAware Proxy (Remote)
+    else if (url.pathname === "/octoprint-api/flightaware/kaex") {
+        targetUrl = "https://aeroapi.flightaware.com/aeroapi/airports/KAEX/flights";
+        headers = {
+            "x-apikey": env.FLIGHTAWARE_API_KEY, 
+            "User-Agent": "Beechem-Worker"
+        };
+    }
+    // 6. Unknown
+    else {
+      return new Response("Not found", { status: 404, headers: corsHeaders });
+    }
+
+    try {
+      const upstreamResp = await fetch(targetUrl, { headers: headers });
+
+      const resp = new Response(upstreamResp.body, upstreamResp);
+
+      Object.keys(corsHeaders).forEach(key => {
+        resp.headers.set(key, corsHeaders[key]);
+      });
+
+      if (!resp.headers.has("Content-Type") && upstreamResp.headers.has("Content-Type")) {
+        resp.headers.set("Content-Type", upstreamResp.headers.get("Content-Type"));
+      }
+
+      return resp;
+    } catch (err) {
+      return new Response("Upstream Error: " + err.message, { status: 502, headers: corsHeaders });
+    }
+  },
+};
 
 export default {
   async fetch(request, env, ctx) {

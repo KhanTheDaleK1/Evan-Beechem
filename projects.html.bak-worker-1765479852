@@ -274,9 +274,10 @@
       const BEECH_OCTO_WEBCAM_URL = WORKER_BASE + "/octoprint-api/webcam";
       const BEECH_OCTO_SETTINGS_URL = WORKER_BASE + "/octoprint-api/settings";
       const FLIGHT_DATA_URL = WORKER_BASE + "/octoprint-api/flight-data";
-      const FLIGHTAWARE_URL = WORKER_BASE + "/octoprint-api/flightaware/kaex";
 
       let webcamInitialized = false;
+
+const BEECH_OCTO_URL = "/octoprint-api/job";
 
       async function beechemUpdateOctoprint() {
         try {
@@ -368,7 +369,8 @@
             const data = await resp.json();
             const count = data.aircraft ? data.aircraft.length : 0;
             
-            // Find the FLIGHT MAP card
+            // Find the FLIGHT MAP card status line. 
+            // Since we didn't give it an ID, we look for the card containing the h3 'FLIGHT MAP'
             const cards = document.querySelectorAll('.card');
             for (const card of cards) {
                 const h3 = card.querySelector('h3');
@@ -376,38 +378,13 @@
                     const statusLine = card.querySelector('.status-line');
                     if (statusLine) {
                         statusLine.textContent = "TRACKING: " + count + " AIRCRAFT";
+                        // statusLine.classList.add('blink'); // Optional effect
                     }
                     break; 
                 }
             }
         } catch (e) {
             console.error("Flight stats fetch error:", e);
-        }
-      }
-
-      async function updateFlightAwareStats() {
-        try {
-            const resp = await fetch(FLIGHTAWARE_URL);
-            if (!resp.ok) return;
-            const data = await resp.json();
-            // AeroAPI /airports/KAEX/flights returns { arrivals: [], departures: [], ... }
-            const arrivals = data.arrivals ? data.arrivals.length : 0;
-            const departures = data.departures ? data.departures.length : 0;
-            const total = arrivals + departures;
-            
-            const cards = document.querySelectorAll('.card');
-            for (const card of cards) {
-                const h3 = card.querySelector('h3');
-                if (h3 && h3.textContent.includes("FLIGHTAWARE")) {
-                    const statusLine = card.querySelector('.status-line');
-                    if (statusLine) {
-                        statusLine.textContent = "NEARBY (KAEX): " + total + " FLIGHTS";
-                    }
-                    break;
-                }
-            }
-        } catch (e) {
-            console.error("FlightAware stats fetch error:", e);
         }
       }
 
@@ -418,9 +395,6 @@
         
         updateFlightStats();
         setInterval(updateFlightStats, 5000);
-
-        updateFlightAwareStats();
-        setInterval(updateFlightAwareStats, 30000); // 30s interval for external API to save quota
       });
     </script>
 </body>
