@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { margin: 0; padding: 0; background-color: #000; color: #00ff00; font-family: 'Courier New', monospace; overflow: hidden; }
+        canvas { display: block; position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.8; }
+        .content { position: relative; z-index: 10; padding: 40px; text-align: center; height: 100vh; overflow-y: auto; }
+        h1 { letter-spacing: 5px; text-shadow: 0 0 10px #00ff00; margin-bottom: 10px; }
+        .subtitle { opacity: 0.7; border-bottom: 1px solid #004400; display: inline-block; padding-bottom: 5px; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .card { border: 1px solid #004400; padding: 20px; text-decoration: none; color: #00ff00; display: flex; flex-direction: column; justify-content: space-between; background: rgba(0, 10, 0, 0.85); transition: 0.2s; min-height: 140px; box-shadow: 0 0 5px #002200; }
+        .card:hover { background: rgba(0, 30, 0, 0.95); border-color: #00ff00; box-shadow: 0 0 15px #00ff00; transform: translateY(-2px); }
+        .card h3 { margin: 0 0 10px 0; border-bottom: 1px dashed #004400; padding-bottom: 5px; font-size: 1.1rem; letter-spacing: 1px; }
+        .card p { font-size: 0.85rem; opacity: 0.8; line-height: 1.4; flex-grow: 1; }
+        .status-line { margin: 10px 0; font-size: 0.8rem; font-weight: bold; text-align: left; }
+        .blink { animation: blinker 2s linear infinite; color: #00ff00; }
+        @keyframes blinker { 50% { opacity: 0.3; } }
+        .access-btn { background-color: #00ff00; color: #000; padding: 5px 15px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-top: 15px; align-self: flex-end; text-transform: uppercase; }
+        .card:hover .access-btn { background-color: #fff; box-shadow: 0 0 10px #fff; }
+    
+        /* OctoPrint live card extras */
+        .progress-container { width:100%; background-color:#004400; height:10px; margin-top:10px; }
+        .progress-bar { height:100%; width:0%; background-color:#00ff00; transition:width 0.4s; }
+</style>
+
+  <style>
+    /* Responsive tweaks for beechem.site projects */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-gap: 24px;
+      align-items: stretch;
+      justify-items: stretch;
+    }
+
+    .card {
+      box-sizing: border-box;
+      max-width: 100%;
+      padding: 18px;
+      overflow: hidden;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .card h3,
+    .card .card-header {
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card .status-line,
+    .card p {
+      white-space: normal;
+      overflow-wrap: break-word;
+      margin-bottom: 6px;
+    }
+
+    .access-btn,
+    .card .access-btn {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    /* Mobile: single column, larger tap targets */
+    @media (max-width: 800px) {
+      body {
+        margin: 0;
+        padding: 0 8px 16px 8px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+        grid-gap: 16px;
+      }
+
+      .card {
+        padding: 14px;
+        font-size: 0.9rem;
+      }
+
+      .card h3,
+      .card .card-header {
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .access-btn,
+      .card .access-btn {
+        width: 100%;
+        display: block;
+        margin-top: 8px;
+      }
+    }
+  </style>
+
+  <style>
+    /* Mobile overrides v2: bigger tap targets */
+    @media (max-width: 800px) {
+      html, body {
+        font-size: 16px;           /* base text size */
+      }
+
+      body {
+        margin: 0;
+        padding: 12px 10px 20px 10px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+      }
+
+      .card {
+        padding: 18px;
+        font-size: 1rem;           /* inherit base size */
+      }
+
+      .card h3,
+      .card .card-header {
+        font-size: 1.2rem;
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      .card .status-line,
+      .card p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      .access-btn,
+      .card .access-btn {
+        width: 100%;
+        display: block;
+        font-size: 1rem;
+        padding: 10px 0;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <div class="content">
+        <h1>// GLOBAL UPLINKS //</h1>
+        <div class="subtitle">SECURE GATEWAY INTERFACE (CORRECTED)</div>
+        <div class="grid">
+            
+            <a href="https://octoprint.beechem.site" target="_blank" class="card" style="border-color: #00ff00;">
+                <h3>OCTOPRINT</h3>
+                <div class="status-line" id="octo-status">STATUS: CONNECTING...</div>
+                <p id="octo-file">File: ---</p>
+                <div class="access-btn">ACCESS >></div>
+            </a>
+
+            <a href="https://flightaware.com/adsb/stats/user/KhanTheDalek" target="_blank" class="card">
+                <h3>FLIGHTAWARE</h3>
+                <div class="status-line">STATUS: REPORTING</div>
+                <p>Global Statistics & Feeder Rank.</p>
+                <div class="access-btn">VIEW STATS >></div>
+            </a>
+
+            <a href="https://www.flightradar24.com/account/feed-stats" target="_blank" class="card">
+                <h3>FLIGHTRADAR24</h3>
+                <div class="status-line">ID: T-KAEX8</div>
+                <p>Uplink active. Radar view operational.</p>
+                <div class="access-btn">VIEW FEED >></div>
+            </a>
+
+            <a href="https://www.adsbexchange.com/myip/" target="_blank" class="card">
+                <h3>ADSB EXCHANGE</h3>
+                <div class="status-line">MLAT: SYNCED</div>
+                <p>Unfiltered global tracking network.</p>
+                <div class="access-btn">CHECK SYNC >></div>
+            </a>
+        
+            <a href="https://ignition.beechem.site" target="_blank" class="card">
+                <h3>IGNITION GATEWAY</h3>
+                <div class="status-line">STATUS: ONLINE</div>
+                <p>SCADA / OT gateway and Ignition HMIs.</p>
+                <div class="access-btn">OPEN GATEWAY >></div>
+            </a>
+
+            <a href="https://ops.beechem.site/flight-map" target="_blank" class="card">
+                <h3>AIRPLANES.LIVE</h3>
+                <div class="status-line">STATUS: LINKED</div>
+                <p>Low-latency radar view from Evan-OptiPlex-7040.</p>
+                <div class="access-btn">VIEW RADAR >></div>
+            </a>
+</div>
+    </div>
+
+    <script>
+      // Minimal, robust OctoPrint status updater for beechem.site
+      const BEECH_OCTO_URL = "https://octoprint-proxy.evan-t-beechem.workers.dev/octoprint-api/job";
+
+      async function beechemUpdateOctoprint() {
+        try {
+          const resp = await fetch(BEECH_OCTO_URL, { cache: "no-store" });
+          if (!resp.ok) {
+            console.error("[OctoPrint] HTTP error:", resp.status);
+            throw new Error("HTTP " + resp.status);
+          }
+
+          const data = await resp.json();
+          const state = data.state || "UNKNOWN";
+          const progress = (data.progress && data.progress.completion) || 0;
+          const job = data.job || {};
+          const file = job.file || {};
+          const name = file.display || file.name || "No File Loaded";
+
+          const statusEl = document.getElementById("octo-status");
+          const fileEl = document.getElementById("octo-file");
+
+          if (statusEl) {
+            let txt = "STATUS: " + String(state).toUpperCase();
+            if (String(state).toLowerCase() === "printing") {
+              txt += " (" + Math.round(progress) + "%)";
+            }
+            statusEl.textContent = txt;
+          }
+
+          if (fileEl) {
+            fileEl.textContent = "File: " + name;
+          }
+        } catch (e) {
+          console.error("[OctoPrint] API error:", e);
+          const statusEl = document.getElementById("octo-status");
+          if (statusEl) {
+            statusEl.textContent = "STATUS: DISCONNECTED (API)";
+          }
+          const fileEl = document.getElementById("octo-file");
+          if (fileEl) {
+            fileEl.textContent = "File: ---";
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Kick once, then every 5s
+        beechemUpdateOctoprint();
+        setInterval(beechemUpdateOctoprint, 5000);
+      });
+    </script>
+</body>
+</html>
