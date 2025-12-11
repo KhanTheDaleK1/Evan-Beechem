@@ -77,7 +77,7 @@
             min-height: 140px; 
             box-shadow: 0 0 5px #002200; 
             box-sizing: border-box;
-            overflow: hidden; /* Fix for overflow issues */
+            overflow: hidden; /* Ensure content stays within card boundaries */
             word-wrap: break-word;
             user-select: none;
             -webkit-user-select: none;
@@ -124,6 +124,28 @@
             background: #001100;
         }
 
+        /* Map Card Specific Styling */
+        .map-iframe-container {
+            width: 100%;
+            height: 300px; /* Fixed height for the container */
+            overflow: hidden; /* Ensure content is clipped if scaled */
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .map-iframe-container iframe {
+            width: 125%; /* Scale up the iframe's internal content container */
+            height: 125%; /* Scale up the iframe's internal content container */
+            transform: scale(0.8); /* Scale down the actual content */
+            transform-origin: top left; /* Scale from top left corner */
+            position: absolute; /* Position it for scaling */
+            top: 0;
+            left: 0;
+            border: none; 
+            background: #001100;
+            title: "Live Flight Map"; 
+            loading: lazy;
+        }
         /* Mobile Responsive Styles - Vertical Scroll with Sticky Header */
         @media (max-width: 800px) {
             body { padding: 0; }
@@ -227,13 +249,14 @@
             <!-- FLIGHT MAP CARD: REFACTORED FOR FIXES -->
             <div class="card" style="padding-bottom: 60px; position: relative;">
                 <h3>FLIGHT MAP</h3>
-                <!-- Iframe: 100% width, margin adjusted to prevent left-clipping if possible -->
-                <iframe 
-                    src="https://ops.beechem.site/flight-map/" 
-                    style="width: 100%; height: 300px; border: none; background: #001100; margin: 0; padding: 0;" 
-                    title="Live Flight Map" 
-                    loading="lazy">
-                </iframe>
+                <div class="map-iframe-container">
+                    <iframe 
+                        src="https://ops.beechem.site/flight-map/" 
+                        style="" 
+                        title="Live Flight Map" 
+                        loading="lazy">
+                    </iframe>
+                </div>
                 <div style="margin-top: 10px;">
                     <div class="status-line">STATUS: LINKED</div>
                     <p>Low-latency radar view from Evan-OptiPlex-7040.</p>
