@@ -12,28 +12,6 @@
   },
   {
     "isp": "Unknown Provider",
-    "loc": "Delhi Mumbai",
-    "coords": [
-      19.1356062,
-      72.8476525
-    ],
-    "title": "Indigo flight status highlights: Airline cancels nearly 220 flights in Delhi, Mumbai and Bengaluru today - livemint.com",
-    "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQZ1UxelItcHBYQ0Qyd1RtNHR2WnV3by1CTmQ0STdxb3k0blRzN3k0RTB4QUFFYUprcC1CUGRhdUZlZkdRWnNnZmtDZDREa1JpQkYwWUJ6WVlrVEs1cW1tQ3JyNUl3QlY5ZklOVnRjUHhJcnRXZ0VTSjdpMVA1dHF4UzVUb29WVkZETmtwczJueTVZay1UU19NdlAzcHhoaGZuU3p0N3RtVjdRbXVkQkdzcEI1RDc5Y1hzckV4QlpvY1VwWndoSTVYZkJQSWxYcmhOcVREUzI4UHBaZUhHMEdqWVJnbHlXRnR5QW1Yd3ZHWHBHenBsNnZrZVpsTGNvOUlh0gGGAkFVX3lxTE1SSGtYZjBabHpra2M0VVF4OEdYaUFGWDAtTlBHR0kxYnNTMFVYclByanhYRXk5NTBOZ3o0R1R1LVdJZExkYkRwaDdZc0dFUVFrQkdHTWp1dUVXUjVqWm9QT1c4aVFWcTUwOWtveDdLbWZiV1dkUnowaXZoRHNBa244VTVhM2xxWlUwSGJjNl8tdUxjMXBDR3cyV0cxa2VkSTQtczBtNkNKbnp3V2NjZTJoWUVrOEpsVDl6bHp2d3RaWDY3Rl9NdjZBbjYydjZfejNCNTRGRTJzTlBnU0ZjNkFZa1VVUE1iQ3E1enZLVWlCTEJmX1hiX3d6RGN0bUUtSW1vcVNXa0E?oc=5",
-    "time": "Thu, 11 Dec 2025 00:13:37 GMT"
-  },
-  {
-    "isp": "Unknown Provider",
-    "loc": "Whalsay",
-    "coords": [
-      60.3557922,
-      -0.9822604
-    ],
-    "title": "Connectivity Erratic internet and mobile services pose a \u2018real risk\u2019 to islanders in Whalsay - Shetland News",
-    "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOUE4tSVBweTVBM01mblpuWmEzMEV3MTdMSFhTRWZIdzZUcWhLR3BTSHZOcFNPVENjZ3JMdnNVN1NJbWR4Q3ctanVPbmd4TzFxekFvNGR0UjF1bnBaQ1NkUXJiLWpSU29Vd0tKS2VfX202ZmVtX0RfcVVMR3hIcnN6ZVhR?oc=5",
-    "time": "Thu, 11 Dec 2025 16:42:00 GMT"
-  },
-  {
-    "isp": "Unknown Provider",
     "loc": "Indian",
     "coords": [
       50.9559019,
@@ -56,14 +34,14 @@
   },
   {
     "isp": "Unknown Provider",
-    "loc": "Rabie Ridge",
+    "loc": "Delhi Mumbai",
     "coords": [
-      -26.0172222,
-      28.1747222
+      19.1356062,
+      72.8476525
     ],
-    "title": "Allandale substation set for overhaul amid rising outages in Rabie Ridge and surroundings - The Citizen",
-    "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPQW14LTNNcmwyMVNIMVFjbGlZQzBJNHphdmJXbXM0S0NSWjc0aFQzaUszVzlIX1RwbXVrblF0dkx0bHJfbGQtYkdjRXlEaWU4TzdUaXU4ZkdtNFFSRGtvblN2cWFGT0FEOXNWeVFuWlFkY211WjVkdDdoZ2NQeWJRaVU1R29TNG11LXdNYzR4aUVMVDJkVFBqalpyeEVlY09CV1ZUV2xPQlNfZWU0NjVlYUVseWJ6MEVxVGtBZTgyNjZBRGxGMkdOSy1La3Z6R3pEWS1yYlpTejBGVUVXWVBpbVdvbTlFVHZyQzFCd2RVRWd6ZWtqZ3pOVmNLVXBHc0U?oc=5",
-    "time": "Thu, 11 Dec 2025 11:44:38 GMT"
+    "title": "Indigo flight status highlights: Airline cancels nearly 220 flights in Delhi, Mumbai and Bengaluru today - livemint.com",
+    "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQZ1UxelItcHBYQ0Qyd1RtNHR2WnV3by1CTmQ0STdxb3k0blRzN3k0RTB4QUFFYUprcC1CUGRhdUZlZkdRWnNnZmtDZDREa1JpQkYwWUJ6WVlrVEs1cW1tQ3JyNUl3QlY5ZklOVnRjUHhJcnRXZ0VTSjdpMVA1dHF4UzVUb29WVkZETmtwczJueTVZay1UU19NdlAzcHhoaGZuU3p0N3RtVjdRbXVkQkdzcEI1RDc5Y1hzckV4QlpvY1VwWndoSTVYZkJQSWxYcmhOcVREUzI4UHBaZUhHMEdqWVJnbHlXRnR5QW1Yd3ZHWHBHenBsNnZrZVpsTGNvOUlh0gGGAkFVX3lxTE1SSGtYZjBabHpra2M0VVF4OEdYaUFGWDAtTlBHR0kxYnNTMFVYclByanhYRXk5NTBOZ3o0R1R1LVdJZExkYkRwaDdZc0dFUVFrQkdHTWp1dUVXUjVqWm9QT1c4aVFWcTUwOWtveDdLbWZiV1dkUnowaXZoRHNBa244VTVhM2xxWlUwSGJjNl8tdUxjMXBDR3cyV0cxa2VkSTQtczBtNkNKbnp3V2NjZTJoWUVrOEpsVDl6bHp2d3RaWDY3Rl9NdjZBbjYydjZfejNCNTRGRTJzTlBnU0ZjNkFZa1VVUE1iQ3E1enZLVWlCTEJmX1hiX3d6RGN0bUUtSW1vcVNXa0E?oc=5",
+    "time": "Thu, 11 Dec 2025 00:13:37 GMT"
   },
   {
     "isp": "Unknown Provider",
