@@ -98,52 +98,6 @@
       }
     }
   </style>
-
-  <style>
-    /* Mobile overrides v2: bigger tap targets */
-    @media (max-width: 800px) {
-      html, body {
-        font-size: 16px;           /* base text size */
-      }
-
-      body {
-        margin: 0;
-        padding: 12px 10px 20px 10px;
-      }
-
-      .card-grid {
-        grid-template-columns: 1fr;
-        grid-gap: 20px;
-      }
-
-      .card {
-        padding: 18px;
-        font-size: 1rem;           /* inherit base size */
-      }
-
-      .card h3,
-      .card .card-header {
-        font-size: 1.2rem;
-        text-align: left;
-        margin-bottom: 8px;
-      }
-
-      .card .status-line,
-      .card p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-      }
-
-      .access-btn,
-      .card .access-btn {
-        width: 100%;
-        display: block;
-        font-size: 1rem;
-        padding: 10px 0;
-        margin-top: 10px;
-      }
-    }
-  </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
