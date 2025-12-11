@@ -388,29 +388,34 @@
         }
       }
 
-      async function updateFlightAwareStats() {
-        // Locate elements
-        let statusLineEl = null;
-        const flightListEl = document.getElementById('flight-list');
+async function updateFlightAwareStats() {
+        // 1. Locate elements FIRST
         const cards = document.querySelectorAll('.card');
+        let statusLineEl = null;
+        let flightListEl = null;
+
         for (const card of cards) {
             const h3 = card.querySelector('h3');
             if (h3 && h3.textContent.includes("FLIGHTAWARE")) {
                 statusLineEl = card.querySelector('.status-line');
+                flightListEl = card.querySelector('#flight-list');
                 break;
             }
         }
 
         try {
             const resp = await fetch(FLIGHTAWARE_URL);
+            
+            // 2. Handle HTTP Errors
             if (!resp.ok) {
                 if (statusLineEl) statusLineEl.textContent = "STATUS: UPLINK FAILED (HTTP " + resp.status + ")";
                 if (flightListEl) flightListEl.textContent = "> Error: " + resp.status + " " + resp.statusText;
                 return;
             }
-            
+
             const data = await resp.json();
             
+            // Existing Success Logic
             const arrivals = data.arrivals || [];
             const departures = data.departures || [];
             const total = arrivals.length + departures.length;
@@ -429,16 +434,12 @@
                 listContent = "> No active traffic in range.";
             }
 
-            if (statusLineEl) {
-                statusLineEl.textContent = "NEARBY (KAEX): " + total + " FLIGHTS";
-            }
-
-            if (flightListEl) {
-                flightListEl.textContent = listContent;
-            }
+            if (statusLineEl) statusLineEl.textContent = "NEARBY (KAEX): " + total + " FLIGHTS";
+            if (flightListEl) flightListEl.textContent = listContent;
 
         } catch (e) {
             console.error("FlightAware stats fetch error:", e);
+            // 3. Handle Network Errors
             if (statusLineEl) statusLineEl.textContent = "STATUS: CONNECTION ERROR";
             if (flightListEl) flightListEl.textContent = "> Error: " + e.message;
         }
