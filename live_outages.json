@@ -45,6 +45,17 @@
   },
   {
     "isp": "Unknown Provider",
+    "loc": "Detroit",
+    "coords": [
+      42.3315509,
+      -83.0466403
+    ],
+    "title": "Power outage due to winter weather forces emergency evacuation at Detroit's Leland House, authorities say - CBS News",
+    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPSFVBMlAwQjBJZmtBdFc5ZEFLbkdmYXQ2dTFjVUl2ZGhlZl84YTdOWDhnaTA1RUpXTVZNVlJlTTNpc3gyX3gzcnoxUTZwMUs4ZzVsMGZmRW9Pb25nRzR5RE5NbFdoV1FuWllpanJEU2JtaTNXSDBRUFgwOUZrOEVoWTlZcHFicjduRUR0Uw?oc=5",
+    "time": "Thu, 11 Dec 2025 05:11:00 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
     "loc": "Ultra",
     "coords": [
       35.9640219,
