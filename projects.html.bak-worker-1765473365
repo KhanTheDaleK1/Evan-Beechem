@@ -273,19 +273,25 @@
             fileEl.textContent = "File: " + name;
           }
 
-          // 2. Initialize Webcam Logic (Once)
+          // 2. Fetch Settings / Initialize Webcam (Once)
+          // We only do this if the API is responsive, meaning OctoPrint is up.
           if (!webcamInitialized) {
-            const img = document.getElementById("octo-webcam");
-            if (img) {
-                // Initial load
-                img.style.display = "block";
-                refreshWebcamSnapshot();
-                
-                // Set up polling (3 seconds)
-                setInterval(refreshWebcamSnapshot, 3000);
-                
-                webcamInitialized = true;
-                console.log("[OctoPrint] Webcam polling initialized.");
+            try {
+                const settingsResp = await fetch(BEECH_OCTO_SETTINGS_URL);
+                if (settingsResp.ok) {
+                    const settingsData = await settingsResp.json();
+                    // Check if webcam is enabled in settings (optional validation)
+                    // Then set the stream
+                    const img = document.getElementById("octo-webcam");
+                    if (img) {
+                        img.src = BEECH_OCTO_WEBCAM_URL;
+                        img.style.display = "block";
+                        webcamInitialized = true;
+                        console.log("[OctoPrint] Webcam initialized via Proxy.");
+                    }
+                }
+            } catch (err) {
+                console.warn("[OctoPrint] Settings fetch failed, webcam might be unavailable.", err);
             }
           }
 
@@ -300,23 +306,6 @@
             fileEl.textContent = "File: ---";
           }
         }
-      }
-      
-      function refreshWebcamSnapshot() {
-          const img = document.getElementById("octo-webcam");
-          if (!img) return;
-          
-          // Use action=snapshot and timestamp to bust cache
-          // The worker now forwards query params!
-          const timestamp = new Date().getTime();
-          const newSrc = BEECH_OCTO_WEBCAM_URL + "?action=snapshot&t=" + timestamp;
-          
-          // Preload image to avoid flickering
-          const tempImg = new Image();
-          tempImg.onload = function() {
-              img.src = newSrc;
-          };
-          tempImg.src = newSrc;
       }
 
       document.addEventListener("DOMContentLoaded", function () {

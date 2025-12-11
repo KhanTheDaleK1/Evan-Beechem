@@ -133,9 +133,12 @@ export default {
     else if (url.pathname === "/octoprint-api/settings") {
       targetUrl = baseOcto + "/api/settings";
     }
-    // 3. Webcam Stream (MJPEG)
+    // 3. Webcam Proxy (Stream or Snapshot)
     else if (url.pathname === "/octoprint-api/webcam") {
-      targetUrl = baseOcto + "/webcam/?action=stream";
+      // Forward query params (e.g., ?action=snapshot)
+      // If no query params, default to stream
+      const queryString = url.search || "?action=stream";
+      targetUrl = baseOcto + "/webcam/" + queryString;
     }
     // 4. Unknown
     else {
@@ -158,7 +161,7 @@ export default {
         resp.headers.set(key, corsHeaders[key]);
       });
 
-      // Ensure Content-Type is preserved (crucial for MJPEG)
+      // Ensure Content-Type is preserved (crucial for MJPEG/Images)
       if (!resp.headers.has("Content-Type") && upstreamResp.headers.has("Content-Type")) {
         resp.headers.set("Content-Type", upstreamResp.headers.get("Content-Type"));
       }
