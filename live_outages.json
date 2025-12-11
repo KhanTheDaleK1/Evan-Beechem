@@ -23,6 +23,17 @@
   },
   {
     "isp": "Unknown Provider",
+    "loc": "Detroit",
+    "coords": [
+      42.3315509,
+      -83.0466403
+    ],
+    "title": "Power outage due to winter weather forces emergency evacuation at Detroit's Leland House, authorities say - CBS News",
+    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPSFVBMlAwQjBJZmtBdFc5ZEFLbkdmYXQ2dTFjVUl2ZGhlZl84YTdOWDhnaTA1RUpXTVZNVlJlTTNpc3gyX3gzcnoxUTZwMUs4ZzVsMGZmRW9Pb25nRzR5RE5NbFdoV1FuWllpanJEU2JtaTNXSDBRUFgwOUZrOEVoWTlZcHFicjduRUR0Uw?oc=5",
+    "time": "Thu, 11 Dec 2025 05:11:00 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
     "loc": "The Leland House",
     "coords": [
       32.7743444,
@@ -42,17 +53,6 @@
     "title": "Texas Leads with California in Ultra-Processed Food Regulation & Litigation - Hunton Andrews Kurth LLP",
     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNN2RfRHRGR1VaQk9BYkh5UzNjNExMLURZRmRycGVKU3l0TS1JZ3oxTFVPSXhxRHZNSkxIUEp4RzltSElDTGtuNFhmTjN4aXZFeUM0bzhRYkc5b0FJaHhZQVhXS1U2ZTBuY0hlSjNQRWx2a0QyVXdLUlFzTHktX29ZaTNJMEpxLTJuQ0V1VUk4WTQzcFhQaUpteTFtaS1LSWJYaEVWdnFtZXRfdGdaeklkR0tDMjJxdmRZOWVjaUhDVW0?oc=5",
     "time": "Wed, 10 Dec 2025 19:39:19 GMT"
-  },
-  {
-    "isp": "Unknown Provider",
-    "loc": "Navy Pier",
-    "coords": [
-      32.7147542,
-      -117.1754434
-    ],
-    "title": "WBEZ loses local programming amid ongoing power outage at Navy Pier studios - Chicago Tribune",
-    "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE85RVI0d0M0UTNndks5LWl1SVItTS1iWFoyLWJUT0J6bGN0N3hfY0FnclpWQ2ZSZ00tNnc5SkZzV1EyUm9vUm1XSVlVRUw4RjNmOUdEUkJMMU41Q1pGSHptRWswVlYtazZ3Q0ZURTgzRU9RTHpQeGhFbXh3?oc=5",
-    "time": "Wed, 10 Dec 2025 20:24:27 GMT"
   },
   {
     "isp": "Unknown Provider",
