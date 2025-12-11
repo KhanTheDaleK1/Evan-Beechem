@@ -273,11 +273,9 @@
       const BEECH_OCTO_JOB_URL = WORKER_BASE + "/octoprint-api/job";
       const BEECH_OCTO_WEBCAM_URL = WORKER_BASE + "/octoprint-api/webcam";
       const BEECH_OCTO_SETTINGS_URL = WORKER_BASE + "/octoprint-api/settings";
-      const FLIGHT_DATA_URL = WORKER_BASE + "/octoprint-api/flight-data";
+      const FLIGHT_DATA_URL = "https://ops.beechem.site/tar1090/data/aircraft.json";
 
       let webcamInitialized = false;
-
-const BEECH_OCTO_URL = "/octoprint-api/job";
 
       async function beechemUpdateOctoprint() {
         try {

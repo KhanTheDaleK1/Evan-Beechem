@@ -106,7 +106,7 @@ echo
 echo "=== REWRITING Cloudflare Worker SOURCE =========================="
 cat > "$WORKER_FILE" << 'JS'
 // worker_config/octoprint_proxy_worker.js
-// Proxy for OctoPrint job status, settings, and webcam with CORS for beechem.site.
+// Proxy for OctoPrint job status, settings, webcam, and flight data with CORS for beechem.site.
 
 export default {
   async fetch(request, env, ctx) {
@@ -135,12 +135,14 @@ export default {
     }
     // 3. Webcam Proxy (Stream or Snapshot)
     else if (url.pathname === "/octoprint-api/webcam") {
-      // Forward query params (e.g., ?action=snapshot)
-      // If no query params, default to stream
       const queryString = url.search || "?action=stream";
       targetUrl = baseOcto + "/webcam/" + queryString;
     }
-    // 4. Unknown
+    // 4. Flight Data Proxy (New)
+    else if (url.pathname === "/octoprint-api/flight-data") {
+        targetUrl = "https://ops.beechem.site/tar1090/data/aircraft.json";
+    }
+    // 5. Unknown
     else {
       return new Response("Not found", { status: 404, headers: corsHeaders });
     }
