@@ -41,9 +41,8 @@
         h1 { letter-spacing: 5px; text-shadow: 0 0 10px #00ff00; margin: 0 0 10px 0; font-size: 1.8rem; }
         .subtitle { opacity: 0.7; border-bottom: 1px solid #004400; display: inline-block; padding-bottom: 5px; }
         
-        /* Back Button - Default hidden on desktop unless needed, but requested for header */
         .back-btn {
-            display: none; /* Hidden by default on desktop, or style differently */
+            display: none;
             color: #00ff00;
             text-decoration: none;
             font-weight: bold;
@@ -84,12 +83,10 @@
             -webkit-user-select: none;
             cursor: pointer;
         }
-        /* Hover for Desktop */
         @media (hover: hover) {
             .card:hover { background: rgba(0, 30, 0, 0.95); border-color: #00ff00; box-shadow: 0 0 15px #00ff00; transform: translateY(-2px); }
             .card:hover .access-btn { background-color: #fff; box-shadow: 0 0 10px #fff; }
         }
-        /* Active State for Mobile Touch */
         .card:active {
             background: rgba(0, 60, 0, 0.95);
             border-color: #00ff00;
@@ -115,9 +112,15 @@
             border-radius: 2px; 
         }
     
-        /* OctoPrint live card extras */
-        .progress-container { width:100%; background-color:#004400; height:10px; margin-top:10px; }
-        .progress-bar { height:100%; width:0%; background-color:#00ff00; transition:width 0.4s; }
+        /* OctoPrint Extras */
+        .octo-webcam {
+            width: 100%;
+            height: auto;
+            display: none; /* Hidden by default until active */
+            margin-bottom: 10px;
+            border: 1px solid #004400;
+            opacity: 0.9;
+        }
 
         /* Mobile Responsive Styles - Vertical Scroll with Sticky Header */
         @media (max-width: 800px) {
@@ -130,7 +133,6 @@
                 -webkit-overflow-scrolling: touch;
             }
 
-            /* Sticky Header */
             .header-container {
                 position: sticky;
                 top: 0;
@@ -139,7 +141,7 @@
                 backdrop-filter: blur(8px);
                 -webkit-backdrop-filter: blur(8px);
                 margin-bottom: 20px;
-                padding: 15px 0 15px 0; /* Add padding inside header */
+                padding: 15px 0 15px 0;
                 border-bottom: 1px solid #004400;
             }
 
@@ -154,15 +156,15 @@
             }
 
             .card-grid {
-                display: block; /* Standard block layout for vertical scroll */
-                padding: 0 16px 40px 16px; /* Bottom padding for scroll clearance */
+                display: block;
+                padding: 0 16px 40px 16px;
                 margin: 0;
                 width: auto;
             }
 
             .card {
-                margin-bottom: 20px; /* Spacing between cards */
-                min-height: auto; /* Let content dictate height */
+                margin-bottom: 20px;
+                min-height: auto;
                 height: auto;
                 background: rgba(0, 15, 0, 0.9);
             }
@@ -186,6 +188,7 @@
             
             <a href="https://octoprint.beechem.site" target="_blank" class="card" style="border-color: #00ff00;">
                 <h3>OCTOPRINT</h3>
+                <img id="octo-webcam" class="octo-webcam" alt="OctoPrint Live Stream" />
                 <div class="status-line" id="octo-status">STATUS: CONNECTING...</div>
                 <p id="octo-file">File: ---</p>
                 <div class="access-btn">ACCESS >></div>
@@ -229,12 +232,17 @@
     </div>
 
     <script>
-      // Minimal, robust OctoPrint status updater for beechem.site
-      const BEECH_OCTO_URL = "/octoprint-api/job";
+      // Proxy Endpoints
+      const BEECH_OCTO_JOB_URL = "/octoprint-api/job";
+      const BEECH_OCTO_SETTINGS_URL = "/octoprint-api/settings";
+      const BEECH_OCTO_WEBCAM_URL = "/octoprint-api/webcam";
+
+      let webcamInitialized = false;
 
       async function beechemUpdateOctoprint() {
         try {
-          const resp = await fetch(BEECH_OCTO_URL, { cache: "no-store" });
+          // 1. Fetch Job Status
+          const resp = await fetch(BEECH_OCTO_JOB_URL, { cache: "no-store" });
           if (!resp.ok) {
             console.error("[OctoPrint] HTTP error:", resp.status);
             throw new Error("HTTP " + resp.status);
@@ -261,6 +269,28 @@
           if (fileEl) {
             fileEl.textContent = "File: " + name;
           }
+
+          // 2. Fetch Settings / Initialize Webcam (Once)
+          // We only do this if the API is responsive, meaning OctoPrint is up.
+          if (!webcamInitialized) {
+            try {
+                const settingsResp = await fetch(BEECH_OCTO_SETTINGS_URL);
+                if (settingsResp.ok) {
+                    const settingsData = await settingsResp.json();
+                    // We assume if settings load, webcam is reachable via proxy
+                    const img = document.getElementById("octo-webcam");
+                    if (img) {
+                        img.src = BEECH_OCTO_WEBCAM_URL;
+                        img.style.display = "block";
+                        webcamInitialized = true;
+                        console.log("[OctoPrint] Webcam initialized via Proxy.");
+                    }
+                }
+            } catch (err) {
+                console.warn("[OctoPrint] Settings fetch failed, webcam might be unavailable.", err);
+            }
+          }
+
         } catch (e) {
           console.error("[OctoPrint] API error:", e);
           const statusEl = document.getElementById("octo-status");
