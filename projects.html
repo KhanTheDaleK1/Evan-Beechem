@@ -274,11 +274,20 @@
           }
 
           // 2. Initialize Webcam Logic (Once)
+          // We only do this if the API is responsive, meaning OctoPrint is up.
           if (!webcamInitialized) {
             const img = document.getElementById("octo-webcam");
             if (img) {
                 // Initial load
                 img.style.display = "block";
+                
+                // Set up error handling for the image
+                img.onerror = function() {
+                    console.error("[OctoPrint] Webcam image failed to load.");
+                    // Keep visible but maybe translucent to show it's there but broken?
+                    // Or keep dark background.
+                };
+
                 refreshWebcamSnapshot();
                 
                 // Set up polling (3 seconds)
@@ -306,17 +315,14 @@
           const img = document.getElementById("octo-webcam");
           if (!img) return;
           
-          // Use action=snapshot and timestamp to bust cache
-          // The worker now forwards query params!
+          // Direct source assignment to avoid preload issues
+          // If the worker returns a stream, this will just play the stream.
+          // If it returns a snapshot, it will update.
           const timestamp = new Date().getTime();
           const newSrc = BEECH_OCTO_WEBCAM_URL + "?action=snapshot&t=" + timestamp;
           
-          // Preload image to avoid flickering
-          const tempImg = new Image();
-          tempImg.onload = function() {
-              img.src = newSrc;
-          };
-          tempImg.src = newSrc;
+          img.src = newSrc;
+          // console.log("[OctoPrint] Updating webcam src:", newSrc);
       }
 
       document.addEventListener("DOMContentLoaded", function () {
