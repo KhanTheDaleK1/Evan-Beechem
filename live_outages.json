@@ -34,6 +34,17 @@
   },
   {
     "isp": "Unknown Provider",
+    "loc": "The Leland House",
+    "coords": [
+      32.7743444,
+      -79.9316305
+    ],
+    "title": "Authorities force evacuation at The Leland House after power outage - CBS News",
+    "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNWU5EQVg2VVY5UTlVVDJQT0wzcUZLbUt6dERBRUNPWFlxa1hVTGdXLXpGWXNNdWRzQXhETmFMMk9NUkE0Y1Ztc3ZMSGRmLXMzdHNRaUZPcVlUSGt6dnAxZm9wYlQ1cHB5VVprcUpNc1UwakY2aHFGU3Exbm8wekhSUExZY3JhTVVqbmZVTV82cE9yOTdJN25EUDkycWtTbl9ZZi12dkl6T2lhQQ?oc=5",
+    "time": "Thu, 11 Dec 2025 04:48:00 GMT"
+  },
+  {
+    "isp": "Unknown Provider",
     "loc": "Turkmenistan",
     "coords": [
       39.3763807,
