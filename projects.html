@@ -389,9 +389,26 @@
       }
 
       async function updateFlightAwareStats() {
+        // Locate elements
+        let statusLineEl = null;
+        const flightListEl = document.getElementById('flight-list');
+        const cards = document.querySelectorAll('.card');
+        for (const card of cards) {
+            const h3 = card.querySelector('h3');
+            if (h3 && h3.textContent.includes("FLIGHTAWARE")) {
+                statusLineEl = card.querySelector('.status-line');
+                break;
+            }
+        }
+
         try {
             const resp = await fetch(FLIGHTAWARE_URL);
-            if (!resp.ok) return;
+            if (!resp.ok) {
+                if (statusLineEl) statusLineEl.textContent = "STATUS: UPLINK FAILED (HTTP " + resp.status + ")";
+                if (flightListEl) flightListEl.textContent = "> Error: " + resp.status + " " + resp.statusText;
+                return;
+            }
+            
             const data = await resp.json();
             
             const arrivals = data.arrivals || [];
@@ -412,27 +429,18 @@
                 listContent = "> No active traffic in range.";
             }
 
-            const cards = document.querySelectorAll('.card');
-            for (const card of cards) {
-                const h3 = card.querySelector('h3');
-                if (h3 && h3.textContent.includes("FLIGHTAWARE")) {
-                    
-                    const statusLine = card.querySelector('.status-line');
-                    if (statusLine) {
-                        statusLine.textContent = "NEARBY (KAEX): " + total + " FLIGHTS";
-                    }
-
-                    const listEl = card.querySelector('#flight-list');
-                    if (listEl) {
-                        listEl.textContent = listContent;
-                    }
-                    break;
-                }
+            if (statusLineEl) {
+                statusLineEl.textContent = "NEARBY (KAEX): " + total + " FLIGHTS";
             }
+
+            if (flightListEl) {
+                flightListEl.textContent = listContent;
+            }
+
         } catch (e) {
             console.error("FlightAware stats fetch error:", e);
-            const listEl = document.getElementById('flight-list');
-            if(listEl) listEl.textContent = "> ERROR: COMM LINK SEVERED";
+            if (statusLineEl) statusLineEl.textContent = "STATUS: CONNECTION ERROR";
+            if (flightListEl) flightListEl.textContent = "> Error: " + e.message;
         }
       }
 
