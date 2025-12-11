@@ -144,37 +144,6 @@
       }
     }
   </style>
-
-  <style>
-    /* Mobile overrides v3: horizontal scrolling cards */
-    @media (max-width: 800px) {
-      .card-grid {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        overflow-y: hidden;
-        gap: 16px;
-        padding-bottom: 12px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .card-grid::-webkit-scrollbar {
-        height: 6px;
-      }
-
-      .card-grid::-webkit-scrollbar-thumb {
-        background: rgba(0, 255, 0, 0.4);
-      }
-
-      .card {
-        flex: 0 0 82%;
-        max-width: 82%;
-        min-width: 260px;
-        scroll-snap-align: start;
-      }
-    }
-  </style>
 </head>
 <body>
     <canvas id="matrix"></canvas>
