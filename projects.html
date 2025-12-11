@@ -77,7 +77,7 @@
             min-height: 140px; 
             box-shadow: 0 0 5px #002200; 
             box-sizing: border-box;
-            overflow: hidden;
+            overflow: hidden; /* Fix for overflow issues */
             word-wrap: break-word;
             user-select: none;
             -webkit-user-select: none;
@@ -224,12 +224,22 @@
                 <div class="access-btn">OPEN GATEWAY >></div>
             </a>
 
-            <div class="card">
+            <!-- FLIGHT MAP CARD: REFACTORED FOR FIXES -->
+            <div class="card" style="padding-bottom: 60px; position: relative;">
                 <h3>FLIGHT MAP</h3>
-                <iframe src="https://ops.beechem.site/flight-map/" style="width: 100%; height: 300px; border: none; background: #001100;" title="Live Flight Map" loading="lazy"></iframe>
-                <div class="status-line">STATUS: LINKED</div>
-                <p>Low-latency radar view from Evan-OptiPlex-7040.</p>
-                <a href="https://ops.beechem.site/flight-map/" target="_blank" class="access-btn">VIEW MAP >></a>
+                <!-- Iframe: 100% width, margin adjusted to prevent left-clipping if possible -->
+                <iframe 
+                    src="https://ops.beechem.site/flight-map/" 
+                    style="width: 100%; height: 300px; border: none; background: #001100; margin: 0; padding: 0;" 
+                    title="Live Flight Map" 
+                    loading="lazy">
+                </iframe>
+                <div style="margin-top: 10px;">
+                    <div class="status-line">STATUS: LINKED</div>
+                    <p>Low-latency radar view from Evan-OptiPlex-7040.</p>
+                </div>
+                <!-- Absolute positioning for button to ensure it stays bottom-right -->
+                <a href="https://ops.beechem.site/flight-map/" target="_blank" class="access-btn" style="position: absolute; bottom: 20px; right: 20px; width: auto;">VIEW MAP >></a>
             </div>
 </div>
     </div>
