@@ -1126,3 +1126,4 @@ fatal: could not read Username for 'https://github.com': No such device or addre
 fatal: could not read Username for 'https://github.com': No such device or address
 [main fb0e220] Auto-Update Intel
  1 file changed, 25 insertions(+), 25 deletions(-)
+fatal: could not read Username for 'https://github.com': No such device or address
