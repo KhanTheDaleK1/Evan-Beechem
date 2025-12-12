@@ -131,14 +131,16 @@
             overflow: hidden; /* Ensure content is clipped if scaled */
             position: relative;
             margin-bottom: 10px;
+            border: 1px solid #004400; /* Frame the map window */
+            background: #001100;
         }
 
         .map-iframe-container iframe {
-            width: 125%; /* Scale up the iframe's internal content container */
-            height: 125%; /* Scale up the iframe's internal content container */
-            transform: scale(0.8); /* Scale down the actual content */
-            transform-origin: top left; /* Scale from top left corner */
-            position: absolute; /* Position it for scaling */
+            width: 153.8%; /* Scale up to compensate for scale(0.65) */
+            height: 153.8%; 
+            transform: scale(0.65); /* Zoom out to show more context */
+            transform-origin: top left; 
+            position: absolute; 
             top: 0;
             left: 0;
             border: none; 
