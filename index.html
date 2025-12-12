@@ -6,6 +6,7 @@
     <title>EVAN BEECHEM // SYSTEM ENGINEER</title>
     <meta name="robots" content="noindex, noarchive, nosnippet">
     <meta name="google-extended" content="allow">
+    <link rel="manifest" href="manifest.json">
     <style>
         :root { --term-green: #00ff00; --bg-color: #0d0d0d; --font-stack: 'Courier New', monospace; }
         body { margin: 0; padding: 20px; background-color: var(--bg-color); color: var(--term-green); font-family: var(--font-stack); overflow-x: hidden; }
@@ -97,6 +98,15 @@
         }
         setInterval(draw, 33);
         window.addEventListener('resize', () => { c.height=window.innerHeight; c.width=window.innerWidth; });
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW registered:', reg))
+                    .catch(err => console.log('SW registration failed:', err));
+            });
+        }
     </script>
 </body>
 </html>

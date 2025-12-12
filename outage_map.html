@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>OPENEYES // SENTINEL</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         :root { --term-green: #00ff00; --term-red: #ff3333; --bg-color: #0d0d0d; --font-stack: 'Courier New', monospace; }
@@ -126,6 +127,13 @@
         }
         setInterval(drawMatrix, 33);
         updateData();
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
     </script>
 </body>
 </html>
