@@ -449,15 +449,17 @@ async function updateFlightAwareStats() {
       }
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Kick once, then every 5s
+        // Kick once, then every 15s (Reduced from 5s to save quota)
         beechemUpdateOctoprint();
-        setInterval(beechemUpdateOctoprint, 5000);
+        setInterval(beechemUpdateOctoprint, 15000);
         
+        // Flight Stats: Reduced to 30s
         updateFlightStats();
-        setInterval(updateFlightStats, 5000);
+        setInterval(updateFlightStats, 30000);
 
+        // FlightAware: Reduced to 60s
         updateFlightAwareStats();
-        setInterval(updateFlightAwareStats, 30000); // 30s interval for external API to save quota
+        setInterval(updateFlightAwareStats, 60000); 
       });
     </script>
     <script src="matrix.js"></script>
