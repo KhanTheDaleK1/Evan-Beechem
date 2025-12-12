@@ -1,4 +1,4 @@
-const CACHE_NAME = 'beechem-ops-v1';
+const CACHE_NAME = 'beechem-ops-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
